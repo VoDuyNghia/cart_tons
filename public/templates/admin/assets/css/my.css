@@ -1,0 +1,99 @@
+.swal2-container {
+    z-index: 10000;
+}
+.dataTables_info {
+    float:left;
+}
+#datatable_paginate {
+    text-align: end;
+    padding-bottom: 1em;
+}
+a.paginate_button {
+    font-size: .875rem;
+    width: 11px;
+    height: 36px;
+    margin: 0 10px;
+    padding: 0;
+   /* border-radius: 50%!important;
+    */
+    align-items: center;
+    justify-content: center;
+}
+a.paginate_button:hover {
+    
+}
+a.paginate_button.current {
+    color :red;
+    font-weight: bold;
+}
+
+.error {
+    font-size: 80%;
+    width: 100%;
+    margin-top: 0.25rem;
+    color: #fd0505;
+}
+
+
+.nav-tabs>li>a {
+    margin-right: 20px;
+    font-size:20px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: red;
+    border: 1px solid red;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs>li>a.active{
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+#cke_description {
+    width :100%;
+}
+
+.select2-container .select2-search--inline {
+    display: block !important;
+} 
+
+#table_transaction tr td {
+    border : 1px solid;
+}
+
+#table_transaction tr th {
+    border : 1px solid;
+}
+
+.card-body .row .col {
+    /* height: 80px !important; */
+}
+
+.canvasjs-chart-canvas {
+    width: 100% !important;
+}
+
+#datatable {
+    width: 100% !important;
+}
+/* .select2-dropdown {
+    width: 330px !important;
+    position: absolute !important;
+    left: 476px !important;
+    top: -100px !important;
+}
+
+.select2-selection__choice {
+    width: 50%;
+} */
+
