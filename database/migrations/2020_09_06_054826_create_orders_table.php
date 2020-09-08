@@ -25,6 +25,8 @@ class CreateOrdersTable extends Migration
                 ->on('order_profiles')
                 ->onDelete('set null');
             $table->integer('order')->nullable();
+            $table->text('message_user')->nullable();
+            $table->text('message_admin')->nullable();
             $table->timestamps();
         });
     }

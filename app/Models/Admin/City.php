@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Admin\District;
 use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
@@ -11,4 +12,9 @@ class City extends Model
         'price',
         'order',
     ];
+
+    public function districts()
+    {
+        return $this->hasMany(District::class);
+    }
 }

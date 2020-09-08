@@ -45,6 +45,15 @@ Route::namespace('Admin')->prefix('admin')->middleware('auth')->group(function (
 
     Route::delete('products/image/{id}', 'ProductController@deleteImage')->name('delete.image');
 
+    Route::get('orders', 'OrderController@index')->name('orders.index');
+    Route::get('orders/data', 'OrderController@anyData')->name('orders.data');
+    Route::get('orders/show/{id}', 'OrderController@show')->name('orders.show');
+    Route::post('orders/{id}/update', 'OrderController@update')->name('orders.update');
+
+    Route::get('orders/day', 'IndexController@dataByDay')->name('orders.day');
+    Route::get('orders/month', 'IndexController@dataByMonth')->name('orders.month');
+
+
 });
 
 

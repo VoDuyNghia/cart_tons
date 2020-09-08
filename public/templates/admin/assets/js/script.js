@@ -324,9 +324,6 @@ $(document).ready(function () {
         });
     });
 
-    //Check condition of Earning Rule
-    handleFormEarningRule();
-
     activaTab('a1');
 
     $('#reset').click(function () {
@@ -436,7 +433,6 @@ function checkfile(sender) {
 
     return true;
 }
-
 
 function checkDate(start_date, end_date) {
     if (start_date == '' && end_date != '') {

@@ -1,11 +1,9 @@
 window.onload = function () {
     var totalHepcoinMined = [];
-    var totalHepcoinOrderd = [];
-
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title: {
-            text: "BIỂU ĐỒ HEPCOIN THEO NGÀY",
+            text: "BIỂU ĐỒ DOANH THU THEO NGÀY",
             fontFamily: 'Times New Roman'
         },
         axisY: {
@@ -18,44 +16,19 @@ window.onload = function () {
         toolTip: {
             shared: true
         },
-        legend: {
-            cursor: "pointer",
-            itemclick: toggleDataSeries
-        },
         data: [{
             type: "column",
-            name: "Tổng Hepcoin kiếm được",
-            legendText: "Tổng Hepcoin kiếm được",
-            showInLegend: true,
+            name: "Doanh thu kiếm được",
+            legendText: "Doanh thu kiếm được",
+            showInLegend: false,
             dataPoints: totalHepcoinMined,
-        },
-        {
-            type: "column",
-            name: "Tổng Hepcoin đã sử dụng",
-            legendText: "Tổng Hepcoin đã sử dụng",
-            showInLegend: true,
-            dataPoints: totalHepcoinOrderd
         }]
     });
 
-    function toggleDataSeries(e) {
-        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-            e.dataSeries.visible = false;
-        }
-        else {
-            e.dataSeries.visible = true;
-        }
-
-        chart.render();
-    }
-
-    $.getJSON("/admin/chart/hepcoin/day", function (data) {
+    $.getJSON("/admin/orders/day", function (data) {
         $.each(data['adding'], function (key, value) {
+            console.log(value);
             totalHepcoinMined.push({ label: formatDate(value['label']), y: parseInt(value['point']) });
-        });
-
-        $.each(data['spending'], function (key, value) {
-            totalHepcoinOrderd.push({ label: formatDate(value['label']), y: parseInt(value['point']) });
         });
 
         chart.render();
@@ -63,18 +36,11 @@ window.onload = function () {
     
 
     function chartMonthCustom(year) {
-
         var totalHepcoinMinedMonth = [];
-        var totalHepcoinOrderdMonth = [];
-
-        $.getJSON("/admin/chart/hepcoin/month?year=" + year + "", function (data) {
+        $.getJSON("/admin/orders/month?year=" + year + "", function (data) {
 
             $.each(data['adding'], function (key, value) {
                 totalHepcoinMinedMonth.push({ label: 'T' + value['month'], y: parseInt(value['point']) });
-            });
-
-            $.each(data['spending'], function (key, value) {
-                totalHepcoinOrderdMonth.push({ label: 'T' + value['month'], y: parseInt(value['point']) });
             });
 
             chartMonth.render();
@@ -83,7 +49,7 @@ window.onload = function () {
         var chartMonth = new CanvasJS.Chart("chartContainerMonth", {
             animationEnabled: true,
             title: {
-                text: "BIỂU ĐỒ HEPCOIN THEO THÁNG NĂM " + year,
+                text: `BIỂU ĐỒ DOANH THU THEO THÁNG (NĂM  ${year})`,
                 fontFamily: 'Times New Roman'
             },
             axisY: {
@@ -96,37 +62,14 @@ window.onload = function () {
             toolTip: {
                 shared: true
             },
-            legend: {
-                cursor: "pointer",
-                itemclick: toggleDataSeriesMonth
-            },
             data: [{
                 type: "column",
-                name: "Tổng Hepcoin kiếm được",
-                legendText: "Tổng Hepcoin kiếm được",
-                showInLegend: true,
+                name: "Doanh thu kiếm được",
+                legendText: "Doanh thu kiếm được",
+                showInLegend: false,
                 dataPoints: totalHepcoinMinedMonth,
-            },
-            {
-                type: "column",
-                name: "Tổng Hepcoin đã sử dụng",
-                legendText: "Tổng Hepcoin đã sử dụng",
-                showInLegend: true,
-                dataPoints: totalHepcoinOrderdMonth,
             }]
         });
-
-        function toggleDataSeriesMonth(e) {
-            console.log(e);
-            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                e.dataSeries.visible = false;
-            }
-            else {
-                e.dataSeries.visible = true;
-            }
-
-            chartMonth.render();
-        }
     }
 
     $('#year').change(function () {
@@ -152,7 +95,7 @@ function formatDate(date) {
     return dt + '/' + month;
 }
 
-var start = 2018;
+var start = 2020;
 var end = new Date().getFullYear();
 var options = "";
 for (var year = end; year >= start; year--) {

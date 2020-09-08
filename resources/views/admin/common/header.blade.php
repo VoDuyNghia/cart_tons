@@ -69,6 +69,23 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('admin/orders*') ? 'active' : '' }}" href="#navbar-orders"
+                            data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-orders">
+                            <em class="far fa-address-book text-red"></em>
+                            <span class="nav-link-text">Quản lý đơn hàng</span>
+                        </a>
+                        <div class="collapse {{ request()->is('admin/orders*') ? 'show' : '' }}" id="navbar-orders">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('orders.index') }}" class="nav-link ">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link {{ request()->is('admin/campaigns*') ? 'active' : '' }}"
                             href="#navbar-campaigns" data-toggle="collapse" role="button" aria-expanded="false"
