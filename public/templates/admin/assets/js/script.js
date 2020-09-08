@@ -69,7 +69,7 @@ $(document).ready(function () {
                         $("#modal-form").modal("hide");
                         $("#myModal").modal("hide");
 
-                        // setTimeout(function () { window.location.replace(actionURLLoad); }, 1500);
+                        setTimeout(function () { window.location.replace(actionURLLoad); }, 1500);
                     },
                     error: function (reject) {
                         if (reject.status == 422) {
@@ -114,6 +114,7 @@ $(document).ready(function () {
                     url: $(this).data('url'),
                     type: 'DELETE',
                     success: function (result) {
+                        $(`.image_${result.message}`).hide();
                         $('#datatable').DataTable().ajax.reload();
                     },
                     error: function (result) {
@@ -465,43 +466,6 @@ function checkDate(start_date, end_date) {
     return true;
 }
 
-function handleFormEarningRule() {
-    $('#limit_active').click(function () {
-        if ($(this).is(':checked')) {
-            document.getElementById('limit_limit').value = ''
-            document.getElementById('limit_period').value = ''
-            $('.error-limit_limit').text('');
-            $(".time-recevice").hide();
-        } else {
-            $(".time-recevice").show();
-        }
-    });
-
-    $('#all_time_active').click(function () {
-        if ($(this).is(':checked')) {
-            $('.error-start_at').text('');
-            $('.error-end_at').text('');
-            document.getElementById('start_at').value = ''
-            document.getElementById('end_at').value = ''
-            $(".time-takes-place").hide();
-        } else {
-            $(".time-takes-place").show();
-        }
-    });
-
-    $("#segment").change(function () {
-        $('#error_group_id').text('');
-        if ($("#segment").val() == 'group-user') {
-            $('.user').css('display', 'none');
-        } else {
-            $('.group-user').css('display', 'none');
-        }
-
-        $('.' + $("#segment").val()).css('display', 'flex');
-    });
-
-    $('.' + $("#segment :selected").val()).css('display', 'flex');
-}
 
 
 function readURL(input) {
@@ -521,31 +485,19 @@ function readURL(input) {
     }
 }
 
-function saveImage(code, name, type) {
-    var fileUrl = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=data%3D" + code + "%26type%3D" + type + "&choe=UTF-8"
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = 'blob';
-    xhr.onload = function () {
-        var a = document.createElement('a');
-        a.href = window.URL.createObjectURL(xhr.response);
-        a.download = name + ".png";
-        a.style.display = 'none';
-        document.body.appendChild(a);
-        a.click();
-        a.remove()
-    };
-    xhr.open('GET', fileUrl);
-    xhr.send();
+i = parseInt($("input[name=count_image]").val());
+
+function addImage() {
+    $('#content').append(
+        '<div class="row" id="row_' + i + '" style="margin-top: 15px;"><div class="col-lg-6 col-md-3">' +
+        '<input required type="file" accept="image/*" name="image_detail[]" class="form-control"> </div>' +
+        '<div class="col-lg-6 col-md-3">' +
+        '<button onclick="removeImage(' + i + ')" type="button" class="btn btn-danger">Xóa</button>' +
+        '</div></div>'
+    );
+    i++;
 }
 
-window.onload = function () {
-    limit_active = document.getElementById("limit_active")
-    if (limit_active != null && limit_active.checked == true) {
-        $(".time-recevice").hide();
-    }
-
-    all_time_active = document.getElementById("all_time_active")
-    if (all_time_active != null && all_time_active.checked == true) {
-        $(".time-takes-place").hide();
-    }
+function removeImage(id) {
+    $("#row_" + id).remove();
 }

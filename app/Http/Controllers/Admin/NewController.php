@@ -66,7 +66,7 @@ class NewController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['description', 'name', 'is_status', 'detail', 'image', 'order']);
-        $data['is_status'] = $this->handleIsStatus($data['is_status']);
+        $data['is_status'] = $this->handleIsStatus(isset($data['is_status']) ? 'on' : 'off');
 
         if (!isset($data['image'])) {
             $data['image'] = null;
@@ -123,7 +123,7 @@ class NewController extends Controller
     {
         $dataNews = $this->news->find($id);
         $data = $request->only(['description', 'name', 'is_status', 'detail', 'image', 'order']);
-        $data['is_status'] = $this->handleIsStatus($data['is_status']);
+        $data['is_status'] = $this->handleIsStatus(isset($data['is_status']) ? 'on' : 'off');
 
         if (isset($data['image'])) {
             $status = true;

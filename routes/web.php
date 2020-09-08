@@ -32,13 +32,19 @@ Route::namespace('Admin')->prefix('admin')->middleware('auth')->group(function (
 
     Route::get('cities/data', 'CityController@anyData')->name('cities.data');
     Route::get('news/data', 'NewController@anyData')->name('news.data');
+    Route::get('products/data', 'ProductController@anyData')->name('products.data');
     
     Route::resources([
         'cities' => 'CityController',
         'news' => 'NewController',
+        'products' => 'ProductController',
     ]);
     Route::post('cities/{id}/update', 'CityController@update')->name('cities.update');
     Route::post('news/{id}/update', 'NewController@update')->name('news.update');
+    Route::post('products/{id}/update', 'ProductController@update')->name('products.update');
+
+    Route::delete('products/image/{id}', 'ProductController@deleteImage')->name('delete.image');
+
 });
 
 

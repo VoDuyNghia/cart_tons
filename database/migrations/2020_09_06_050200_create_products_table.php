@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->float('price', 14, 2)->nullable();
             $table->float('sale_price', 14, 2)->nullable();
-            $table->integer('status')->nullable();
+            $table->integer('is_status')->nullable();
             $table->integer('order')->nullable()->comment('1: Show, 0: Hide');
             $table->timestamps();
         });

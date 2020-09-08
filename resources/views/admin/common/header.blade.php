@@ -52,6 +52,23 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('admin/products*') ? 'active' : '' }}" href="#navbar-products"
+                            data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-products">
+                            <em class="fa fa-object-group text-yellow"></em>
+                            <span class="nav-link-text">Quản lý sản phẩm</span>
+                        </a>
+                        <div class="collapse {{ request()->is('admin/products*') ? 'show' : '' }}" id="navbar-products">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('products.index') }}" class="nav-link">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('products.create') }}" class="nav-link">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link {{ request()->is('admin/campaigns*') ? 'active' : '' }}"
                             href="#navbar-campaigns" data-toggle="collapse" role="button" aria-expanded="false"

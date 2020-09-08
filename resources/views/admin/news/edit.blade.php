@@ -106,7 +106,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="custom-toggle custom-toggle-default">
-                                                <input type="checkbox" checked="" name="is_status">
+                                                <input data-role="check" type="checkbox" {{ $data['is_status'] == 1 ? ' checked ' : '' }} name="is_status">
                                                 <span class="custom-toggle-slider rounded-circle" data-label-off="Tắt"
                                                     data-label-on="Bật"></span>
                                             </label>

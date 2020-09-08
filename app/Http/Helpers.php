@@ -4,6 +4,8 @@ use Intervention\Image\Facades\Image;
 
 const IMGAGE_FOLDER = 'images/';
 const TYPE_NEWS = 'news';
+const TYPE_PRODUCTS = 'products';
+const TYPE_DETAILS = 'details';
 
 function getImage($image, $option)
 {
@@ -13,6 +15,16 @@ function getImage($image, $option)
                 return asset('images/news/default.png');
             }
             return asset('images/news/' . $image);
+        case "products":
+            if ($image == null) {
+                return asset('images/products/default.png');
+            }
+            return asset('images/products/' . $image);
+        case "details":
+            if ($image == null) {
+                return asset('images/details/default.png');
+            }
+            return asset('images/details/' . $image);
         default:
     }
 }
@@ -72,6 +84,12 @@ function resizeImage($file, $option)
         case TYPE_NEWS:
             $img =  Image::make($file);
             return $img;
+        case TYPE_PRODUCTS:
+            $img =  Image::make($file);
+            return $img;
+        case TYPE_DETAILS:
+            $img =  Image::make($file);
+            return $img;
         default:
             return Image::make($file);
     }
@@ -87,7 +105,10 @@ function getImagePath($option)
     switch ($option) {
         case TYPE_NEWS:
             return $basePath . $option . '/';
-
+        case TYPE_PRODUCTS:
+            return $basePath . $option . '/';
+        case TYPE_DETAILS:
+            return $basePath . $option . '/';
         default:
             return $basePath;
     }
