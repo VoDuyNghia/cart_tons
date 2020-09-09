@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,8 +53,11 @@ Route::namespace('Admin')->prefix('admin')->middleware('auth')->group(function (
 
     Route::get('orders/day', 'IndexController@dataByDay')->name('orders.day');
     Route::get('orders/month', 'IndexController@dataByMonth')->name('orders.month');
-
-
 });
 
 
+Route::namespace('UI')->group(function () {
+    Route::get('cities', 'CartController@getCity')->name('ajax.city');
+    Route::get('districts', 'CartController@getDistrict')->name('ajax.district');
+    Route::get('checkout', 'CartController@checkOut')->name('ui.cart.checkout');
+});
