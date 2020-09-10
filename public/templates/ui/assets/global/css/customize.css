@@ -220,3 +220,7 @@ form#form_update_shipping_method {
     color:red;
     font-weight: bold;
 }
+
+.error {
+    color:red;
+}

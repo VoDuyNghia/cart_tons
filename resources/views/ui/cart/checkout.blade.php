@@ -3,6 +3,7 @@
 
 <head>
     <title>Quang Vinh - Coffee - Thanh toán đơn hàng</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="Quang Vinh - Coffee - Thanh toán hóa đơn" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no">
     <link href='{{ asset('templates/ui/') }}/assets/global/css/checkouts.css' rel='stylesheet' type='text/css'
@@ -10,8 +11,13 @@
     <link rel="icon" href="{{ asset('templates/admin/') }}/assets/img/brand/logo.png" type="image/png">
     <link href='{{ asset('templates/ui/') }}/assets/global/css/customize.css' rel='stylesheet' type='text/css'
         media='all' />
+    <link rel="stylesheet" href="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
+
     <script src='{{ asset('templates/ui/') }}/assets/global/js/jquery.min.js' type='text/javascript'></script>
     <script src='{{ asset('templates/ui/') }}/assets/global/js/jquery.validate.js' type='text/javascript'></script>
+    <script src="{{ asset('templates/ui/') }}/assets/global/js/jquery-3.2.1.min.js"></script>
+    <script src="{{ asset('templates/ui/') }}/assets/global/js/jquery.validate.min.js" type="text/javascript">
+    </script>
 </head>
 
 <body>
@@ -168,7 +174,7 @@
                 </div>
                 <div class="main-content">
                     <div class="step">
-                        <form id="form_discount_add" accept-charset="UTF-8" method="post">
+                        <form data-url="{{route('ui.cart.checkout')}}" id="form_discount_add" accept-charset="UTF-8">
                             <div class="step-sections steps-onepage" step="1">
                                 <div class="section">
                                     <div class="section-header">
@@ -178,28 +184,28 @@
                                         <div class="fieldset">
                                             <div class="field ">
                                                 <div class="field-input-wrapper">
-                                                    <label class="field-label" for="billing_address_full_name">Họ và
+                                                    <label class="field-label" for="username">Họ và
                                                         tên</label>
-                                                    <input placeholder="Họ và tên" autocapitalize="off" spellcheck="false"
-                                                        class="field-input" size="30" type="text"
-                                                        id="billing_address_full_name" name="username" value="" />
+                                                    <input autocomplete="off" placeholder="Họ và tên" autocapitalize="off"
+                                                        spellcheck="false" class="field-input" size="30" type="text"
+                                                        id="username" name="username" />
                                                 </div>
                                             </div>
                                             <div class="field  field-two-thirds">
                                                 <div class="field-input-wrapper">
-                                                    <label class="field-label" for="checkout_user_email">Email</label>
-                                                    <input placeholder="Email" autocapitalize="off" spellcheck="false"
-                                                        class="field-input" size="30" type="email" id="checkout_user_email"
-                                                        name="email" value="" />
+                                                    <label class="field-label" for="email">Email</label>
+                                                    <input autocomplete="off" placeholder="Email" autocapitalize="off" spellcheck="false"
+                                                        class="field-input" size="30" type="email" id="email"
+                                                        name="email" />
                                                 </div>
                                             </div>
                                             <div class="field field-required field-third">
                                                 <div class="field-input-wrapper">
-                                                    <label class="field-label" for="billing_address_phone">Số điện
+                                                    <label class="field-label" for="phone">Số điện
                                                         thoại</label>
-                                                    <input placeholder="Số điện thoại" autocapitalize="off"
+                                                    <input autocomplete="off" placeholder="Số điện thoại" autocapitalize="off"
                                                         spellcheck="false" class="field-input" size="30" maxlength="11"
-                                                        type="tel" id="billing_address_phone" name="phone" value="" />
+                                                        type="tel" id="phone" name="phone" />
                                                 </div>
                                             </div>
                                         </div>
@@ -224,10 +230,11 @@
                                                     </div>
                                                     <div class="field field-show-floating-label  field-half ">
                                                         <div class="field-input-wrapper field-input-wrapper-select">
-                                                            <label class="field-label" for="customer_shipping_province">
-                                                                Tỉnh / thành </label>
-                                                            <select class="field-input" id="customer_shipping_province">
-                                                                <option data-price="0" value="null"> Chọn tỉnh / thành
+                                                            <label class="field-label"
+                                                                for="customer_shipping_province">Tỉnh / thành </label>
+                                                            <select class="field-input" id="customer_shipping_province"
+                                                                name="customer_shipping_province" size='1'>
+                                                                <option data-price="0" value=""> Chọn tỉnh / thành
                                                                 </option>
                                                                 @foreach ($dataCity as $value)
                                                                     <option data-price="{{ $value['price'] }}"
@@ -239,25 +246,26 @@
                                                     </div>
                                                     <div class="field field-show-floating-label  field-half ">
                                                         <div class="field-input-wrapper field-input-wrapper-select">
-                                                            <label class="field-label" for="customer_shipping_district">Quận
+                                                            <label class="field-label"
+                                                                for="customer_shipping_district">Quận
                                                                 / huyện</label>
                                                             <select class="field-input" id="customer_shipping_district"
                                                                 name="district_id">
-                                                                <option data-code="null" value="null">Chọn quận / huyện
+                                                                <option data-code="" value="">Chọn quận / huyện
                                                                 </option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div id="div_location_country_not_vietnam"
                                                         class="section-customer-information ">
-                                                        <div class="field field-two-thirds" style="width: 100% !important;">
+                                                        <div class="field field-two-thirds"
+                                                            style="width: 100% !important;">
                                                             <div class="field-input-wrapper">
-                                                                <label class="field-label" for="billing_address_city">Địa
+                                                                <label class="field-label" for="address">Địa
                                                                     chỉ</label>
                                                                 <input placeholder="Địa chỉ" autocapitalize="off"
                                                                     spellcheck="false" class="field-input" size="30"
-                                                                    type="text" id="billing_address_city" name="address"
-                                                                    value="" />
+                                                                    type="text" id="address" name="address" value="" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -280,7 +288,8 @@
                                                                 <div class="radio-input">
                                                                     <input class="input-radio" type="radio" checked />
                                                                 </div>
-                                                                <span class="radio-label-primary">Giao hàng tận nơi</span>
+                                                                <span class="radio-label-primary">Giao hàng tận
+                                                                    nơi</span>
                                                                 <span class="radio-accessory content-box-emphasis"
                                                                     id="shipping-price-2"></span>
                                                             </label>
@@ -303,6 +312,18 @@
                                                             <span class="radio-label-primary">Thanh toán khi giao hàng
                                                                 (COD)</span>
                                                         </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="section-notes" class="section">
+                                            <div class="section-header">
+                                                <h2 class="section-title">Ghi chú (nếu có)</h2>
+                                            </div>
+                                            <div class="section-content">
+                                                <div class="field   ">
+                                                    <div class="field-input-wrapper">
+                                                        <textarea style="width: 100%; box-shadow: rgb(217, 217, 217) 0px 0px 0px 1px; transition: all 0.2s ease-out 0s; border-radius: 5px;" name="message_user" id="message_user" cols="60" rows="5"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -332,6 +353,7 @@
         </div>
     </div>
     <script src='{{ asset('templates/ui/') }}/assets/global/js/customize.js' type='text/javascript'></script>
+    <script src="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
 </body>
 
 </html>
