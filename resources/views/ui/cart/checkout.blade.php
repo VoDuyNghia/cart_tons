@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="flexbox">
 
 <head>
-    <title>Quang Vinh - Coffee - Thanh toán đơn hàng</title>
+    <title>Thanh toán đơn hàng | Quang Vinh - Coffee</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="description" content="Quang Vinh - Coffee - Thanh toán hóa đơn" />
+    <meta name="description" content="Thanh toán đơn hàng | Quang Vinh - Coffee" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no">
     <link href='{{ asset('templates/ui/') }}/assets/global/css/checkouts.css' rel='stylesheet' type='text/css'
         media='all' />
@@ -165,7 +165,7 @@
                     </a>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="/cart">Giỏ hàng</a>
+                            <a href="{{ route('ui.cart.index') }}">Giỏ hàng</a>
                         </li>
                         <li class="breadcrumb-item breadcrumb-item-current">
                             Thông tin giao hàng
@@ -336,7 +336,7 @@
                                     <span class="btn-content">Hoàn tất đơn hàng</span>
                                     <i class="btn-spinner icon icon-button-spinner"></i>
                                 </button>
-                                <a class="step-footer-previous-link" href="/cart">
+                                <a class="step-footer-previous-link" href="{{ route('ui.cart.index') }}">
                                     <svg class="previous-link-icon icon-chevron icon" xmlns="http://www.w3.org/2000/svg"
                                         width="6.7" height="11.3" viewBox="0 0 6.7 11.3">
                                         <path d="M6.7 1.1l-1-1.1-4.6 4.6-1.1 1.1 1.1 1 4.6 4.6 1-1-4.6-4.6z"></path>

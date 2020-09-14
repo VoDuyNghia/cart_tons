@@ -9,6 +9,7 @@ use App\Models\Admin\City;
 use App\Mail\SendMailOrder;
 use App\Models\Admin\Order;
 use Illuminate\Http\Request;
+use App\Models\Admin\Product;
 use App\Models\Admin\Profile;
 use App\Models\Admin\District;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +22,11 @@ class CartController extends Controller
 {
     public function checkOut()
     {
-        // Cart::add(17,'Cafe 1', 1, 80000.00, 500, ['image' => null, 'shape' => 1]);
-        // Cart::add(19, 'Cafe 2', 2, 20000.00, 500, ['image' => null, 'shape' => 2]);
-        return view ('ui.cart.checkout');
+        if(Cart::count() > 0) {
+            return view ('ui.cart.checkout');
+        }
+
+        return redirect()->route('ui.cart.index');
     }
 
     public function postCheckout(OrderRequest $request)
@@ -143,5 +146,67 @@ class CartController extends Controller
         }
 
         return false;
-    }   
+    }
+
+    public function addProduct(Request $request) {
+        $product_id = $request['productId'];
+        $qty = (int) $request['qty'];
+       
+        if($request['shape'] == 2 ) {
+            $shape = 2;
+        } else {
+            $shape = 1;
+        }
+
+        $product = Product::where('id', $product_id)->where('is_status', 1)->first();
+        
+        if($product) {
+            Cart::add($product_id, $product['name'], $qty, $product['sale_price'], 500, ['image' => $product['image'], 'shape' => $shape]);
+            return $this->sendResult([
+                'message' => 'Thêm thành công' , 
+                'amount' => Cart::priceTotal('0', '0', ','). ' đ',
+                'total' => Cart::content()->count(),
+            ], 200);
+        }
+
+        return $this->sendResult(['message' => 'Thêm thất bại'], 400);
+    }
+
+    public function removeFromCart(Request $request)
+    {
+        $result = Cart::remove($request['rowId']);
+
+        if(empty($result))
+        {
+            return $this->sendResult([
+                'message' => 'Xóa thành công' , 
+                'amount' => Cart::priceTotal('0', '0', ','). ' đ',
+                'total' => Cart::content()->count(),
+            ], 200);
+        }
+
+        return $this->sendResult(['message' => 'Xóa thất bại'], 400);
+    }
+
+    public function updateCart(Request $request)
+    {
+        $result = Cart::update($request['rowId'], ['qty' => $request['qty']]);
+
+        if((boolean) $result)
+        {
+            return $this->sendResult([
+                'status' => true, 
+                'message' => 'Cập nhật thành công' , 
+                'amount' => Cart::priceTotal('0', '0', ','). ' đ',
+                'total' => Cart::content()->count(),
+            ], 200);
+        }
+
+        return $this->sendResult(['message' => 'Cập nhật thất bại'], 400);
+    }
+
+    public function indexCart()
+    {
+        return view ('ui.cart.index');
+    }
 }

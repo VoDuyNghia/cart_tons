@@ -65,11 +65,16 @@ class Order extends Model
 
     public function totalBalance()
     {
-        return Order::select(DB::raw('status as status'), DB::raw('sum(total) as total'))
+        $result = Order::select(DB::raw('status as status'), DB::raw('sum(total) as total'))
             ->where('status', self::IS_SUCCESS)
             ->groupBy('status')
-            ->first()
-            ->toArray()['total'];
+            ->first();
+
+        if($result) {
+            return $result->toArray()['total'];
+        }
+
+        return $result;
     }
 
     public function totalOrder($status)

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +12,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+route::pattern('name' ,'(.*)');
+route::pattern('id', '([0-9]*)');
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,12 +36,16 @@ Route::namespace('Admin')->prefix('admin')->middleware('auth')->group(function (
     Route::get('cities/data', 'CityController@anyData')->name('cities.data');
     Route::get('news/data', 'NewController@anyData')->name('news.data');
     Route::get('products/data', 'ProductController@anyData')->name('products.data');
+    Route::get('banners/data', 'BannerController@anyData')->name('banners.data');
     
     Route::resources([
         'cities' => 'CityController',
         'news' => 'NewController',
         'products' => 'ProductController',
+        'banners' => 'BannerController',
     ]);
+
+    Route::post('banners/{id}/update', 'BannerController@update')->name('banners.update');
     Route::post('cities/{id}/update', 'CityController@update')->name('cities.update');
     Route::post('news/{id}/update', 'NewController@update')->name('news.update');
     Route::post('products/{id}/update', 'ProductController@update')->name('products.update');
@@ -57,8 +63,26 @@ Route::namespace('Admin')->prefix('admin')->middleware('auth')->group(function (
 
 
 Route::namespace('UI')->group(function () {
+    Route::get('', 'IndexController@index')->name('ui.index.index');
+    Route::get('ve-chung-toi.html', 'IndexController@indexAboutUs')->name('ui.index.about_us');
+    Route::get('lien-he.html', 'IndexController@indexContact')->name('ui.index.contact_us');
+
+
     Route::get('cities', 'CartController@getCity')->name('ajax.city');
     Route::get('districts', 'CartController@getDistrict')->name('ajax.district');
     Route::get('checkout', 'CartController@checkOut')->name('ui.cart.checkout');
     Route::post('checkout', 'CartController@postCheckOut')->name('ui.cart.checkout');
+
+    Route::get('cart.html', 'CartController@indexCart')->name('ui.cart.index');
+    Route::get('cart/add', 'CartController@addProduct')->name('cart.add');
+    Route::get('cart/delete', 'CartController@removeFromCart')->name('cart.add');
+    Route::get('cart/update', 'CartController@updateCart')->name('cart.update');
+
+    Route::get('news/{name}-{id}.html', 'DetailController@indexNews')->name('ui.detail.index_news');
+    Route::get('products/{name}-{id}.html', 'DetailController@indexProduct')->name('ui.detail.index_product');
+    
+
+    Route::get('cart-info', function() {
+        return view ('ui.common.cart');
+    });
 });
