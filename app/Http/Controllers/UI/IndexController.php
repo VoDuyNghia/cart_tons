@@ -45,4 +45,72 @@ class IndexController extends Controller
     {
         return view('ui.index.contact_us');
     }
+
+    public function getDataUser()
+    {
+        $dataProduct = Product::select('id', 'name')->where('is_status', 1)->get()->toArray();
+        $number = count($dataProduct);
+        
+        $dataName = [
+            "Nguyễn Thị Thạch",
+            "Lưu Hoàng Việt",
+            "Hoàng Thị Thanh",
+            "Hoàng Phạm Khoa",
+            "Lê Phương Mỹ",
+            "Lê Hoàng",
+            "Phan Trần Ngọc",
+            "Nguyễn Vũ Gia",
+            "Nguyễn Thanh",
+            "Võ Thị Thu",
+            "Đỗ Thị Thu",
+            "Nguyễn Thị Thanh",
+            "Trương Nguyên",
+            "Lê Thị Khánh",
+            "Lê Thị Nhi",
+            "Lê Thị Ngọc",
+            "Trang Bảo",
+            "Nguyễn Hà Thúy",
+            "Đào Quyết Chiến",
+            "Nguyễn Tiến Dũng",
+            "Phạm Hồng Thái",
+        ];
+
+        $dataPhone = [
+            "****938212",
+            "****327017",
+            "****003981",
+            "****555368",
+            "****636243",
+            "****818067",
+            "****502845",
+            "****384994",
+            "****754454",
+            "****659321",
+            "****636589",
+            "****896214",
+            "****065921",
+            "****523921",
+            "****663258",
+            "****885482",
+            "****623621",
+            "****965212",
+            "****032148",
+            "****072148",
+            "****963214",
+        ];
+
+        for($i = 0; $i <= 20; $i++) {
+            $productId = rand(0, $number -1);
+            
+            $data[$i] = [
+                "username" => $dataName[$i],
+                "phone" => $dataPhone[$i],
+                'product' => "Cafe đen ".$i,
+                'image' => '../images/products/default.png',
+                'url' => route('ui.detail.index_product', getUrl($dataProduct[$productId]['name'], $dataProduct[$productId]['id']))
+            ];
+        }
+        
+        return Response::json($data);
+    }
 }

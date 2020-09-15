@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use App\Models\Admin\Banner;
 use Intervention\Image\Facades\Image;
 
 const IMGAGE_FOLDER = 'images/';
@@ -8,6 +9,16 @@ const TYPE_NEWS = 'news';
 const TYPE_PRODUCTS = 'products';
 const TYPE_DETAILS = 'details';
 const TYPE_BANNERS = 'banners';
+
+function getImageDatabase ($id)
+{
+    $data =  Banner::find($id);
+
+    return [
+        'image' => $data['image'],
+        'link' => $data['link']
+    ];
+}
 
 function getImage($image, $option)
 {

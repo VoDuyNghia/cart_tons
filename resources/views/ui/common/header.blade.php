@@ -13,7 +13,7 @@
                 <li><a href="{{ url()->full() == route('ui.index.index') ? '#products' : route('ui.index.index')}}" class="{{ request()->is('news/*') ? 'active' : '' }}">Sản phẩm</a></li>
                 <li><a href="{{ route('ui.index.about_us') }}" class="{{ url()->full() == route('ui.index.about_us') ? 'active' : ''}}">Về chúng tôi</a></li>
                 <li><a href="{{ route('ui.index.contact_us') }}" class="{{ url()->full() == route('ui.index.contact_us') ? 'active' : ''}}">Liên hệ</a></li>
-                <li><a href="#">Shopee</a></li>
+                <li><a href="https://shopee.vn/quangvinh.cofee" target="_blank">Shopee</a></li>
             </ul>
             <div>
                 <div class="menu-bar__cart">
@@ -22,9 +22,9 @@
                         <span class="menu-bar__cart-amount" id="cart-total">{{ Cart::content()->count() }}</span>
                     </a>
                     <div class="menu-bar__cart-dropdown">
-                        <div id="cart">
+                        <ul id="cart">
                             @include('ui.common.cart')
-                        </div>
+                        </ul>
                         <p class="menu-bar__cart-total">
                             Tổng tiền: <span id="cart-amount" class="amount">{{ Cart::priceTotal('0', '0', ',') }} đ</span>
                         </p>
@@ -50,7 +50,7 @@
                 <li><a href="{{ route('ui.index.about_us') }}">Về chúng tôi</a></li>
                 <li><a href="{{ route('ui.index.contact_us') }}">Liên hệ</a></li>
                 <li><a href="{{ route('ui.cart.index') }}">Giỏ hàng</a></li>
-                <li><a href="#">Shopee</a></li>
+                <li><a href="https://shopee.vn/quangvinh.cofee" target="_blank">Shopee</a></li>
             </ul>
         </nav>
     </div>

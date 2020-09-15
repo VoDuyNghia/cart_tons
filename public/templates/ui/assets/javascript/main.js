@@ -190,12 +190,24 @@ $(document).ready(function () {
       e.preventDefault();
     }
   });
+
+  function randomIntFromInterval(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  setInterval(function () {
+    someonePurchasedTracking();
+  }, randomIntFromInterval(7,12)*1000);
+  
+  $("#notify-close").click(function () {
+    $("#message-purchased").hide();
+  });
 });
 
 var cart = {
-  'add': function (product_id, shape , type = null) {
+  'add': function (product_id, shape, type = null) {
     var qty = $("input[name='qty[" + product_id + "]']").val();
-    var shape = $("input[name='shape']:checked"). val();
+    var shape = $("input[name='shape']:checked").val();
 
     if (shape != 2) {
       shape = 1;
@@ -211,13 +223,19 @@ var cart = {
       complete: function () {
         $('#product-' + product_id).prop('disabled', true);
 
-        if(type == 'detail') {
-          window.location.href = "/cart.html";
+        if (type == 'detail') {
+          Swal.fire(
+            'Thành công!',
+            'Bạn đã thêm thành thành công',
+            'success'
+          )
+
+          setTimeout(function () { window.location.href = "/cart.html";}, 2000);
         }
       },
       fail: function (json) {
         alert("Xảy ra lỗi trong quá trình thêm !");
-        setTimeout(function(){location.reload();}, 2000);
+        setTimeout(function () { location.reload(); }, 2000);
       },
       success: function (json) {
         $('#cart').load('cart-info ul li');
@@ -227,31 +245,31 @@ var cart = {
       },
       error: function () {
         alert("Xảy ra lỗi trong quá trình thêm !");
-        setTimeout(function(){location.reload();}, 2000);
+        setTimeout(function () { location.reload(); }, 2000);
       }
     });
   },
 
-  'delete': function (rowId , type = null) {
+  'delete': function (rowId, type = null) {
     $.ajax({
       url: '/cart/delete',
       type: 'get',
       data: `rowId=${rowId}`,
       dataType: 'json',
       beforeSend: function () {
-        if(confirm('Bạn có chắc chắn thực hiện thao tác này không? '))
+        if (confirm('Bạn có chắc chắn thực hiện thao tác này không? '))
           return true;
         else
           return false;
       },
       complete: function () {
-        if(type == 'detail') {
+        if (type == 'detail') {
           Swal.fire(
             'Thành công!',
             'Bạn đã xóa thành công',
             'success'
           )
-          setTimeout(function(){location.reload();}, 2000);
+          setTimeout(function () { location.reload(); }, 2000);
         }
       },
       fail: function (json) {
@@ -266,41 +284,179 @@ var cart = {
         alert("Xảy ra lỗi trong quá trình xóa !");
       }
     });
-    
+
   },
 
- 'update': function (rowId) {
+  'update': function (rowId) {
     var qty = $("input[name='qty[" + rowId + "]']").val();
-
-		$.ajax({
-			url: '/cart/update',
-			type: 'get',
-			data: 'rowId=' + rowId + '&' + 'qty=' + qty,
-			dataType: 'json',
-			beforeSend: function () {
-				if(confirm('Bạn có chắc chắn thực hiện thao tác này không? '))
+    $.ajax({
+      url: '/cart/update',
+      type: 'get',
+      data: 'rowId=' + rowId + '&' + 'qty=' + qty,
+      dataType: 'json',
+      beforeSend: function () {
+        if (confirm('Bạn có chắc chắn thực hiện thao tác này không? '))
           return true;
         else
           return false;
-			},
-			complete: function (json) {
-        if(json.responseJSON.status) {
+      },
+      complete: function (json) {
+        if (json.responseJSON.status) {
           Swal.fire(
             'Chúc mừng!',
             'Bạn đã cập nhật thành công',
             'success'
           )
-          setTimeout(function(){location.reload();}, 2000);
+          setTimeout(function () { location.reload(); }, 2000);
         }
-			},
-			success: function (json) {
-			  $('#cart').load('cart-info ul li');
+      },
+      success: function (json) {
+        $('#cart').load('cart-info ul li');
         document.getElementById("cart-amount").innerHTML = json.amount;
         document.getElementById("cart-total").innerHTML = json.total;
-			},
-			error: function () {
+      },
+      error: function () {
         alert("Xảy ra lỗi trong quá trình cập nhật !");
-			}
-		});
-	},
+      }
+    });
+  },
 }
+
+function setCookie(exdays) {
+  $.ajax({
+    url: '/data-buy.html',
+    type: 'GET',
+    error: function () {
+    },
+    dataType: 'json',
+    success: function (data) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = 'dataUser=' + JSON.stringify(data) + ";" + 'expires=' + expires;
+    },
+  });
+}
+
+if (!(getCookie('dataUser'))) {
+  setCookie(1);
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function someonePurchasedTracking() {
+  var datas = JSON.parse(getCookie('dataUser'))[Math.floor(Math.random() * JSON.parse(getCookie('dataUser')).length)];
+
+  jQuery("#message-purchased-img").attr("src", datas.image);
+  jQuery("#message-purchased-link").attr("href", datas.url);
+  jQuery("#message-purchased-link").text(datas.product);
+  jQuery("#message-purchased-info").html(`Cảm ơn khách hàng <strong>${datas.username}</strong> (${datas.phone}) <br/> đã đặt hàng thành công!`);
+  jQuery("#message-purchased").show();
+}
+
+let modalId = $('#image-gallery');
+
+$(document)
+  .ready(function () {
+
+    loadGallery(true, 'a.thumbnail');
+
+    //This function disables buttons when needed
+    function disableButtons(counter_max, counter_current) {
+      $('#show-previous-image, #show-next-image')
+        .show();
+      if (counter_max === counter_current) {
+        $('#show-next-image')
+          .hide();
+      } else if (counter_current === 1) {
+        $('#show-previous-image')
+          .hide();
+      }
+    }
+
+    /**
+     *
+     * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+     * @param setClickAttr  Sets the attribute for the click handler.
+     */
+
+    function loadGallery(setIDs, setClickAttr) {
+      let current_image,
+        selector,
+        counter = 0;
+
+      $('#show-next-image, #show-previous-image')
+        .click(function () {
+          if ($(this)
+            .attr('id') === 'show-previous-image') {
+            current_image--;
+          } else {
+            current_image++;
+          }
+
+          selector = $('[data-image-id="' + current_image + '"]');
+          updateGallery(selector);
+        });
+
+      function updateGallery(selector) {
+        let $sel = selector;
+        current_image = $sel.data('image-id');
+        $('#image-gallery-title')
+          .text($sel.data('title'));
+        $('#image-gallery-image')
+          .attr('src', $sel.data('image'));
+        disableButtons(counter, $sel.data('image-id'));
+      }
+
+      if (setIDs == true) {
+        $('[data-image-id]')
+          .each(function () {
+            counter++;
+            $(this)
+              .attr('data-image-id', counter);
+          });
+      }
+      $(setClickAttr)
+        .on('click', function () {
+          updateGallery($(this));
+        });
+    }
+  });
+
+// build key actions
+$(document)
+  .keydown(function (e) {
+    switch (e.which) {
+      case 37: // left
+        if ((modalId.data('bs.modal') || {})._isShown && $('#show-previous-image').is(":visible")) {
+          $('#show-previous-image')
+            .click();
+        }
+        break;
+
+      case 39: // right
+        if ((modalId.data('bs.modal') || {})._isShown && $('#show-next-image').is(":visible")) {
+          $('#show-next-image')
+            .click();
+        }
+        break;
+
+      default:
+        return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});

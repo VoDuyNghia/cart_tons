@@ -194,44 +194,20 @@
                             </ul>
                         </div>
                     </li>
+                     --}}
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('admin/pages*') ? 'active' : '' }}" href="#navbar-pages"
-                            data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-pages">
+                        <a class="nav-link {{ request()->is('admin/banners*') ? 'active' : '' }}" href="#navbar-banners"
+                            data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-banners">
                             <em class="ni ni-collection"></em>
-                            <span class="nav-link-text">Quản lý nội dung</span>
+                            <span class="nav-link-text">Quản lý hình ảnh</span>
                         </a>
-                        <div class="collapse {{ request()->is('admin/pages*') ? 'show' : '' }}" id="navbar-pages">
+                        <div class="collapse {{ request()->is('admin/banners*') ? 'show' : '' }}" id="navbar-banners">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('pages.index') }}" class="nav-link ">Danh sách</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('pages.create') }}" class="nav-link">Thêm mới</a>
+                                    <a href="{{ route('banners.index') }}" class="nav-link ">Danh sách</a>
                                 </li>
                             </ul>
                         </div>
-                    </li> --}}
-                </ul>
-                <hr class="my-3">
-                <h6 class="navbar-heading p-0 text-muted">Tài Liệu Hướng Dẫn</h6>
-                <ul class="navbar-nav mb-md-3">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" target="_blank">
-                            <em class="ni ni-spaceship"></em>
-                            <span class="nav-link-text">Hướng dẫn sử dụng App</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" target="_blank">
-                            <em class="ni ni-palette"></em>
-                            <span class="nav-link-text">Hướng dẫn sử dụng trang quản lý</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" target="_blank">
-                            <em class="ni ni-ui-04"></em>
-                            <span class="nav-link-text">Thông tin liên hệ</span>
-                        </a>
                     </li>
                 </ul>
             </div>

@@ -182,6 +182,7 @@ $('document').ready(function () {
                             },
                             success: function (data) {
                                 $("#form_discount_add").load(location.href + " #form_discount_add>*", "");
+                                setTimeout(function () { window.location.href = "/success.html";}, 2000);
                             },
                             error: function (reject) {
                             },

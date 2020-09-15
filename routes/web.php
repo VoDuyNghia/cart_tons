@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,8 +67,8 @@ Route::namespace('UI')->group(function () {
     Route::get('', 'IndexController@index')->name('ui.index.index');
     Route::get('ve-chung-toi.html', 'IndexController@indexAboutUs')->name('ui.index.about_us');
     Route::get('lien-he.html', 'IndexController@indexContact')->name('ui.index.contact_us');
-
-
+    Route::get('data-buy.html', 'IndexController@getDataUser');
+    
     Route::get('cities', 'CartController@getCity')->name('ajax.city');
     Route::get('districts', 'CartController@getDistrict')->name('ajax.district');
     Route::get('checkout', 'CartController@checkOut')->name('ui.cart.checkout');
@@ -85,4 +86,12 @@ Route::namespace('UI')->group(function () {
     Route::get('cart-info', function() {
         return view ('ui.common.cart');
     });
+
+    Route::get('success.html', function() {
+        if(Session::get('success') == 'ok'){
+            return view ('ui.cart.success');
+        }
+        return redirect()->route('ui.index.index');
+    });
+
 });

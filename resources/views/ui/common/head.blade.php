@@ -1,10 +1,9 @@
 @yield("seo")
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{{ asset('templates/admin/') }}/assets/img/brand/logo.png" type="image/x-icon">
-    <link rel="icon" href="{{ asset('templates/admin/') }}/assets/img/brand/logo.png" type="image/x-icon">
-    <link rel="{{ asset('templates/admin/') }}/assets/img/brand/logo.png" href="{{ asset('templates/admin/') }}/assets/img/brand/logo.png">
-    <link rel="{{ asset('templates/admin/') }}/assets/img/brand/logo.png" href="{{ asset('templates/admin/') }}/assets/img/brand/logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ getImage(getImageDatabase(12)['image'], 'banners') }}" type="image/x-icon">
+    <link rel="icon" href="{{ getImage(getImageDatabase(12)['image'], 'banners') }}" type="image/x-icon">
+    <link rel="{{ getImage(getImageDatabase(12)['image'], 'banners') }}" href="{{ getImage(getImageDatabase(12)['image'], 'banners') }}">
+    <link rel="{{ getImage(getImageDatabase(12)['image'], 'banners') }}" href="{{ getImage(getImageDatabase(12)['image'], 'banners') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('templates/ui/') }}/assets/styles/slick.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('templates/ui/') }}/assets/styles/slick-theme.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />

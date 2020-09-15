@@ -15,6 +15,7 @@ use App\Models\Admin\District;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\OrderRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Response;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -63,8 +64,10 @@ class CartController extends Controller
 
             if($this->addOrderProduct($order)) {
                 SendEmail::dispatch(new SendMailOrder($order->toArray()), 'nghia97dn@gmail.com');
+                $request->session()->put('success', 'ok');
                 DB::commit();
-
+                
+                Cart::destroy();
                 return $this->sendResult(['message' => 'Thêm thành công'], 200);
             };
             

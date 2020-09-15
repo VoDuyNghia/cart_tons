@@ -2,96 +2,49 @@
     <div class="wrapper">
        <div class="footer">
           <div class="footer__item">
-             <h4 class="footer__title">OPENING HOURS</h4>
+             <h4 class="footer__title">GIỜ MỞ CỬA</h4>
              <div class="working-hours">
                 <p>
-                   <label> MONDAY </label>
+                   <label>THỨ 2 - CHỦ NHẬT</label>
                    <span class="line"></span>
-                   <label class="close-bee"> Close </label>
+                   <label> 7:00 - 23:00 </label>
                 </p>
                 <p>
-                   <label> TUESDAY </label>
-                   <span class="line"></span>
-                   <label> 9:00 - 22:00 </label>
-                </p>
-                <p>
-                   <label> WEDNESDAY </label>
-                   <span class="line"></span>
-                   <label> 9:00 - 22:00 </label>
-                </p>
-                <p>
-                   <label> THURSDAY </label>
-                   <span class="line"></span>
-                   <label> 9:00 - 1:00 </label>
-                </p>
-                <p>
-                   <label> FRIDAY * </label>
-                   <span class="line"></span>
-                   <label> 12:00 - 01:00 </label>
-                </p>
-                <p>
-                   <label> SATURDAY * </label>
-                   <span class="line"></span>
-                   <label> 12:00 - 01:00 </label>
-                </p>
-                <p>
-                   <label> SUNDAY </label>
-                   <span class="line"></span>
-                   <label> 9:00 - 22:00 </label>
-                </p>
+                  <label>NGÀY NGHỈ LỄ</label>
+                  <span class="line"></span>
+                  <label> 7:00 - 23:00 </label>
+               </p>
              </div>
           </div>
           <div class="footer__item">
-             <h4 class="footer__title">LATEST POSTS</h4>
+             <h4 class="footer__title">BÀI VIẾT GẦN ĐÂY</h4>
              <ul class="recent-post">
+                @foreach($dataNewsRandom as $value)
                 <li>
-                   <a href="#" class="recent-post__title">EXPAND YOUR MIND, CHANGE EVERYTHING</a>
-                   <p class="recent-post__time">14.02.2017</p>
+                   <a href="{{ route('ui.detail.index_news', getUrl($value['name'], $value['id'])) }}" class="recent-post__title text-uppercase">{{ $value['name'] }}</a>
+                   <p class="recent-post__time">{{ $value['created_at']->format('d-m-Y')}}</p>
                 </li>
-                <li>
-                   <a href="#" class="recent-post__title">PLACES TO GET LOST</a>
-                   <p class="recent-post__time">14.02.2017</p>
-                </li>
-                <li>
-                   <a href="#" class="recent-post__title">LEWIS HOWES</a>
-                   <p class="recent-post__time">14.02.2017</p>
-                </li>
-                <li>
-                   <a href="#" class="recent-post__title">LEWIS HOWES</a>
-                   <p class="recent-post__time">14.02.2017</p>
-                </li>
+                @endforeach
              </ul>
           </div>
           <div class="footer__item">
-             <h4 class="footer__title">CONTACT US</h4>
+             <h4 class="footer__title">LIÊN HỆ</h4>
              <p class="contact-us">
-                <a href="mailto:info@cafe&bar_theme">info@cafe&bar_theme</a>
-                <br />
-                <span>1-444-123-4559</span>
-                <br />
-                <span>Raymond Boulevard 224,</span>
-                <br />
-                <span>New York</span>
+                <span>0898.987.567 (Zalo)</span>
              </p>
           </div>
           <div class="footer__item">
-             <h4 class="footer__title">OTHER LOCATIONS</h4>
+             <h4 class="footer__title">ĐỊA CHỈ</h4>
              <div class="other-location border-bottom">
-                <h5 class="footer__title footer__title--small">
-                   BARISTA COFFEE SHOP
-                </h5>
                 <p>
-                   2606 Saints Alley <br />
-                   <br />
-                   Tampa, FL 33602
+                   250 Trần Phú, Lộc Sơn Bảo Lộc, Lâm Đồng
                 </p>
              </div>
              <div class="other-location">
-                <h5 class="footer__title footer__title--small">BARISTA CAFE</h5>
-                <p>
-                   3497 Watson Street <br />
-                   <br />
-                   BARISTA CAFECamden, NJ 08102
+                <h5 class="footer__title footer__title--small">MẠNG XÃ HỘI</h5>
+                <p class="social">
+                   <a href="https://www.facebook.com/quangvinh.coffee/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                   <a href="https://shopee.vn/quangvinh.cofee" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                 </p>
              </div>
           </div>

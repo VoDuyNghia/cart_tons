@@ -763,7 +763,6 @@ header {
   margin-bottom: 80px;
   margin-top: 76px;
   height: 40.8vh;
-  background-image: url("https://barista.qodeinteractive.com/wp-content/uploads/2017/01/shop-home-grid-img.jpg?id=12748");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -1401,4 +1400,160 @@ ins {
 a:hover {
   color: #333 !important;
   text-decoration: none !important;
+}
+
+
+@media all {
+	#message-purchased {
+		border: 0;
+		border-radius: 0;
+		bottom: 20px;
+		box-shadow: 0 0 4px 0 rgba(0,0,0,.4);
+		display: none;
+		font-family: tahoma,sans-serif;
+		left: 20px;
+		padding: 0;
+		position: fixed;
+		right: auto!important;
+		text-align: left;
+		top: auto!important;
+		width: auto;
+		z-index: 99999
+	}
+
+	#message-purchased img {
+		float: left;
+		max-height: 85px;
+		max-width: 85px;
+		width: auto;
+		align-self: center
+	}
+
+	#message-purchased p {
+		float: left;
+		font-size: 13px;
+		line-height: 20px;
+		margin: 0 0 0 13px;
+		padding: 10px 5px 5px 0;
+		width: auto
+	}
+
+	#message-purchased p a {
+		color: #000;
+		display: block;
+		font-size: 15px;
+		font-weight: 700;
+		width: 100%;
+		margin: 0;
+		overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    text-decoration: none;
+		padding: 0
+	}
+
+	#message-purchased p a:hover {
+		color: #000
+	}
+
+	#message-purchased p small {
+		display: block;
+		font-size: 10px;
+		margin-bottom: 8px
+	}
+
+	#message-purchased {
+		padding-right: 25px;
+		background-color: #fff;
+		color: #0f0f0f
+	}
+
+	#message-purchased #notify-close {
+		background: url("../images/close.png") 0 0/cover rgba(0,0,0,0);
+		cursor: pointer;
+		height: 16px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		width: 16px
+	}
+
+	@media screen and (max-width: 767px) {
+		#message-purchased {
+			bottom:0!important;
+			box-sizing: border-box;
+			left: 0!important;
+			top: auto!important;
+			width: 100%;
+			padding: 0
+		}
+
+		#message-purchased img {
+			max-width: 20%
+		}
+
+		#message-purchased p {
+			font-size: 11px;
+			width: 70%
+		}
+
+		#message-purchased p a {
+      font-size: 13px;
+		}
+
+		#message-purchased p small {
+			margin-bottom: 0
+		}
+	}
+
+	#message-purchased a {
+		color: #0f0f0f
+	}
+
+	#message-purchased.bounceOutDown {
+		animation-duration: 1.5s;
+		animation-name: nbounceOutDown;
+		opacity: 0
+	}
+}
+
+#message-purchased {
+	background-color: #fff;
+	color: #212121!important;
+	border-radius: 6px
+}
+
+#message-purchased img {
+	border-radius: 6px 0 0 6px
+}
+
+#message-purchased a {
+	color: #212121!important
+}
+
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-backdrop {
+    z-index: 9 !important
+}
+
+.modal {
+    top: 70px !important;
+}
+
+.social a i {
+  color: aliceblue;
+  margin-right: 20px;
 }

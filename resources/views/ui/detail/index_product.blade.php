@@ -26,12 +26,13 @@
     <meta property="twitter:image" content="{{ getImage($dataProduct['image'], 'products') }}">
     @section('mycss')
     <link rel="stylesheet" href="{{ asset('templates/ui/') }}/assets/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://127.0.0.1:8000/templates/admin/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
     @endsection
 @endsection
 @section('content')
     @include('ui.common.info')
 
-    <section id="banner" class="banner-product" style="background-image: url(../templates/ui/assets/images/shop-title-area.jpg);">
+    <section id="banner" class="banner-product" style="background-image: url({{ getImage(getImageDatabase(7)['image'], 'banners') }});">
         <div class="container">
             <div class="banner-inner">
                 <h2 class="banner-title-product">{{ $dataProduct['name'] }}</h2>
@@ -45,7 +46,7 @@
                 <div class="row">
                     <div class="images">
                         <div class="woocommerce-product-gallery__image">
-                            <a href="#" data-rel="prettyPhoto[woo_single_pretty_photo]">
+                            <a href="javascript:void(0)" data-rel="prettyPhoto[woo_single_pretty_photo]">
                                 <img width="100%" height="100%" src="{{ getImage($dataProduct['image'], 'products') }}">
                             </a>
                         </div>
@@ -53,14 +54,44 @@
                 </div>
 
                 <div class="row mt-2">
-                    @foreach($dataProduct->images->toArray() as $value)
-                    <div class="woocommerce-product-gallery__image">
-                        <a href="https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1.jpg" data-rel="prettyPhoto[woo_single_pretty_photo]"><img width="100" height="100" src="https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-100x100.jpg" alt="p" title="product-image-2-gallery-1" data-caption="" data-src="https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1.jpg" data-large_image="https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1.jpg" data-large_image_width="800" data-large_image_height="800" srcset="https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-100x100.jpg 100w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-500x500.jpg 500w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-633x633.jpg 633w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-150x150.jpg 150w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-300x300.jpg 300w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-768x768.jpg 768w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1-550x550.jpg 550w, https://barista.qodeinteractive.com/wp-content/uploads/2016/03/product-image-2-gallery-1.jpg 800w"></a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="row">
+                                @foreach($dataProduct->images->toArray() as $key => $value)
+                                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                    <a class="thumbnail" href="#" data-image-id="{{ $key }}" data-toggle="modal" data-title="{{ $dataProduct['name'] }}" data-image="{{ getImage($value['path'], 'details') }}" data-target="#image-gallery">
+                                        <img class="img-thumbnail" src="{{ getImage($value['path'], 'details') }}" alt="{{ $dataProduct['name'] }}">
+                                    </a>
+                                </div>
+                                @endforeach
+                            </div>
+                    
+                            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                                            </button>
+                    
+                                            <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    @endforeach
+                   
                 </div>
             </div>
-
             <div class="col-md-6 mt-5">
                 <div class="edgtf-single-product-summary">
                     <div class="summary entry-summary">
@@ -165,4 +196,8 @@
             <i class="fal fa-long-arrow-right"></i>
         </button>
     </div>
+@endsection
+@section('myscript')
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
 @endsection
