@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "bumbummen99/shoppingcart": "^2.9",
+        "ckfinder/ckfinder-laravel-package": "v3.5.1.5",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",

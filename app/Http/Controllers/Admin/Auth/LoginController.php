@@ -76,6 +76,7 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data)) {
+            $request->session()->put('ckfinder', true);
             return response()->json(
                 [
                     'type' =>  'success',

@@ -154,10 +154,12 @@
     </div>
 @endsection
 @section('myjavascript')
-    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src={{ url('ckeditor/ckeditor.js') }}></script>
     <script>
-        var textarea = document.getElementById('description');
-        CKEDITOR.replace(textarea);
+    CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
 
+    } );
     </script>
+    @include('ckfinder::setup')
 @endsection
