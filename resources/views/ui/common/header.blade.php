@@ -4,7 +4,7 @@
             <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
         <a href="{{ route('ui.index.index') }}" class="menu-logo">
-            <img height="100%" src="https://barista.qodeinteractive.com/wp-content/uploads/2017/02/logo-1.png" alt="Quang Vinh - Coffee" />
+            <img height="100%" src="{{ asset('images/logo-1.png') }}" alt="Quang Vinh - Coffee" />
         </a>
         <nav class="menu-bar">
             <ul class="menu-links">
@@ -17,7 +17,7 @@
             </ul>
             <div>
                 <div class="menu-bar__cart">
-                    <a class="menu-bar__icon-cart" href="javascript:void(0)" class="icon__cart">
+                    <a class="menu-bar__icon-cart" href="{{ route('ui.cart.index') }}" class="icon__cart">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span class="menu-bar__cart-amount" id="cart-total">{{ Cart::content()->count() }}</span>
                     </a>

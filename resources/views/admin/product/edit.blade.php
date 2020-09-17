@@ -39,8 +39,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Chi tiết</label>
                                         <div class="col-sm-6">
-                                            <textarea required data-role="check" class="form-control" placeholder="Chi tiết"
-                                                name="detail" cols="30" rows="5">{{ $data['detail'] }}</textarea>
+                                            <textarea required data-role="check" class="form-control" placeholder="Chi tiết" id="detail"
+                                                name="detail" cols="30" rows="5">{!! $data['detail'] !!}</textarea>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="error error-description"></div>
@@ -170,6 +170,11 @@
     <script src={{ url('ckeditor/ckeditor.js') }}></script>
     <script>
     CKEDITOR.replace( 'description', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+
+    } );
+
+    CKEDITOR.replace( 'detail', {
         filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
 
     } );

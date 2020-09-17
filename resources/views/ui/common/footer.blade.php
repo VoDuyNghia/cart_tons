@@ -36,9 +36,7 @@
           <div class="footer__item">
              <h4 class="footer__title">ĐỊA CHỈ</h4>
              <div class="other-location border-bottom">
-                <p>
-                   250 Trần Phú, Lộc Sơn Bảo Lộc, Lâm Đồng
-                </p>
+                <p>250 Trần Phú, P.Lộc Sơn, Thành Phố Bảo Lộc, Tỉnh Lâm Đồng</p>
              </div>
              <div class="other-location">
                 <h5 class="footer__title footer__title--small">MẠNG XÃ HỘI</h5>

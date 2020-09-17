@@ -71,8 +71,8 @@
                     name: 'image',
                 },
                 {
-                    data: 'status',
-                    name: 'status',
+                    data: 'is_status',
+                    name: 'is_status',
                 },
                 {
                     data: 'order',

@@ -32,7 +32,7 @@
 @section('content')
     @include('ui.common.info')
 
-    <section id="banner" class="banner-product" style="background-image: url(../templates/ui/assets/images/shop-title-area.jpg);">
+    <section id="banner" class="banner-cart" style="background-image: url(../templates/ui/assets/images/shop-title-area.jpg);">
         <div class="container">
             <div class="banner-inner">
                 <h2 class="banner-title-product">Giỏ hàng</h2>

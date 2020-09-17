@@ -26,18 +26,13 @@
     <meta property="twitter:image" content="{{ getImage($dataProduct['image'], 'products') }}">
     @section('mycss')
     <link rel="stylesheet" href="{{ asset('templates/ui/') }}/assets/styles/bootstrap.min.css" />
-    <link rel="stylesheet" href="http://127.0.0.1:8000/templates/admin/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
     @endsection
 @endsection
 @section('content')
     @include('ui.common.info')
 
     <section id="banner" class="banner-product" style="background-image: url({{ getImage(getImageDatabase(7)['image'], 'banners') }});">
-        <div class="container">
-            <div class="banner-inner">
-                <h2 class="banner-title-product">{{ $dataProduct['name'] }}</h2>
-            </div>
-        </div>
     </section>
 
     <div class="wrapper">
@@ -53,7 +48,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-2">
+                <div class="row mt-2 image-detail">
                     <div class="container">
                         <div class="row">
                             <div class="row">
@@ -92,22 +87,22 @@
                    
                 </div>
             </div>
-            <div class="col-md-6 mt-5">
+            <div class="col-md-5 mt-5 ml-3">
                 <div class="edgtf-single-product-summary">
                     <div class="summary entry-summary">
                         <h3 itemprop="name" class="edgtf-single-product-title text-uppercase">{{ $dataProduct['name'] }}</h3>
                         <div class="woocommerce-product-rating">
                             <div class="product__rating" data-rating="{{ $dataProduct['rate'] }}"></div>
                         </div>
-                        <p class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>98.00 đ</span></del>
-                            <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>79.00 đ</span></ins>
+                        <p class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{number_format($dataProduct['price'])}} đ</span></del>
+                            <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{number_format($dataProduct['sale_price'])}} đ</span></ins>
                         </p>
                         <div class="woocommerce-product-details__short-description">
-                            <p>{{$dataProduct['detail']}}</p>
+                            <p>{!! $dataProduct['detail'] !!}</p>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-prepend">
-                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="qty[{{ $dataProduct['id']}}]">
                                     <span class="fa fa-minus"></span>
                                 </button>
                             </span>

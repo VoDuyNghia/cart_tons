@@ -241,6 +241,7 @@ var cart = {
         $('#cart').load('cart-info ul li');
         document.getElementById("cart-amount").innerHTML = json.amount;
         document.getElementById("cart-total").innerHTML = json.total;
+        document.getElementById("cart-total-button").innerHTML = json.total;
         $('#product-' + product_id).html('<i class="fas fa-check"><span> THÊM THÀNH CÔNG </span></i>');
       },
       error: function () {

@@ -7,35 +7,14 @@
 </head>
 
 <body>
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-        xfbml            : true,
-        version          : 'v8.0'
-        });
-    };
-    
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <!-- Your Chat Plugin code -->
-    <div class="fb-customerchat"
-    attribution=setup_tool
-    page_id="101832394966734"
-    theme_color="#d4a88c"
-    logged_in_greeting="Xin chào ! Cảm ơn bạn đã liên hệ. Chúng tôi sẽ sớm trả lời sua ít phút nữa."
-    logged_out_greeting="Xin chào ! Cảm ơn bạn đã liên hệ. Chúng tôi sẽ sớm trả lời sua ít phút nữa.">
-    </div>
-
     @include('ui.common.header')
-    <main>
+    <main style="position: relative;">
+        <div id="button-cart">
+            <a class="menu-bar__icon-cart" href="{{ route('ui.cart.index') }}">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="menu-bar__cart-amount" id="cart-total-button">{{ Cart::content()->count() }}</span>
+            </a>
+        </div>
     @yield("content")
 
     </main>

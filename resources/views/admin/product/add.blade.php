@@ -41,7 +41,7 @@
                                         <label class="col-sm-2 col-form-label">Chi tiết</label>
                                         <div class="col-sm-6">
                                             <textarea required data-role="check" class="form-control" placeholder="Chi tiết"
-                                                name="detail" cols="30" rows="5"></textarea>
+                                                name="detail" cols="30" rows="5" id="description"></textarea>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="error error-description"></div>
@@ -160,6 +160,10 @@
         filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
 
     } );
-    </script>
+
+    CKEDITOR.replace( 'detail', {
+        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+
+    } );
     @include('ckfinder::setup')
 @endsection
