@@ -47,13 +47,13 @@
                 </div>
                 <div class="col-md-3 text-center">
                     <ul class="list-unstyled mb-0">
-                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <li><i class="fa-contact fas fa-map-marker-alt fa-2x"></i>
                             <p>250 Trần Phú, P.Lộc Sơn, Thành Phố Bảo Lộc, Tỉnh Lâm Đồng</p>
                         </li>
-                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <li><i class="fa-contact fas fa-phone mt-4 fa-2x"></i>
                             <p>0898.987.567 (Zalo)</p>
                         </li>
-                        <li><i class="fab fa-facebook-f mt-4 fa-2x"></i>
+                        <li><i class="fa-contact fab fa-facebook-f mt-4 fa-2x"></i>
                             <p><a style="color:#212529"href="https://www.facebook.com/quangvinh.coffee/" target="_blank">Quang Vinh - Coffee</a></p>
                         </li>
                     </ul>

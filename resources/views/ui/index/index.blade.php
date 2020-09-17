@@ -66,7 +66,6 @@
 
     <div id="products"  class="wrapper">
         <div class="title">
-            <p class="title-sub">Quang Vinh - Coffee</p>
             <h4 class="title-main">SẢN PHẨM MỚI NHẤT</h4>
             <div class="title-separator"></div>
         </div>
@@ -85,7 +84,6 @@
 
     <div id="news" class="wrapper">
         <div class="title">
-            <p class="title-sub">Quang Vinh - Coffee</p>
             <h4 class="title-main">TIN MỚI NHẤT</h4>
             <div class="title-separator"></div>
         </div>

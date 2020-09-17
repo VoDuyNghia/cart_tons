@@ -64,7 +64,7 @@ $(document).ready(function () {
   $(".product__rating").starRating({
     totalStars: 5,
     emptyColor: "#eae7de",
-    activeColor: "#c7a17a",
+    activeColor: "#956134",
     useGradient: false,
     strokeColor: "#c7a17a",
     strokeWidth: 0,

@@ -35,7 +35,7 @@
         style="background-image: url({{ getImage(getImageDatabase(8)['image'], 'banners') }});">
         <div class="container header-news">
             <div class="banner-inner">
-                <h2 class="banner-title">11/9/2020 Giá cà phê tăng trước lo ngại thời tiết cực đoan</h2>
+                <h2 class="banner-title">{{ $dataNews['name'] }}</h2>
             </div>
         </div>
     </section>

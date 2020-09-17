@@ -32,7 +32,7 @@
 @section('content')
     @include('ui.common.info')
 
-    <section id="banner" class="banner-cart" style="background-image: url(../templates/ui/assets/images/shop-title-area.jpg);">
+    <section id="banner" class="banner-product" style="background-image: url({{ getImage(getImageDatabase(9)['image'], 'banners') }});">
         <div class="container">
             <div class="banner-inner">
                 <h2 class="banner-title-product">Giỏ hàng</h2>
@@ -67,9 +67,9 @@
                                 <img width="100px" class="img-thumbnail" src="{{ getImage($value['options']['image'], 'products') }}" alt="{{ $value['name'] }}">
                             </td>
                             <td>{{ $value['options']['shape'] == 1 ? "Bột" : "Hạt" }}</td>
-                            <td>{{ number_format($value['price']) }} đ</td>
+                            <td class="text-center input-cart">{{ number_format($value['price']) }} đ</td>
                             <td>
-                                <div class="input-group" style="justify-content: center;">
+                                <div class="input-group" style="flex-wrap: unset; justify-content: center;">
                                     <span class="input-group-prepend">
                                         <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="qty[{{$key}}]">
                                             <span class="fa fa-minus"></span>
@@ -83,7 +83,7 @@
                                     </span>
                                 </div>
                             </td>
-                            <td>{{ number_format($value['subtotal']) }} đ</td>
+                            <td class="text-center input-cart">{{ number_format($value['subtotal']) }} đ</td>
                         </tr>
                         @endforeach
                     </tbody>
