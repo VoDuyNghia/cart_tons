@@ -44,7 +44,7 @@
         @if(Cart::count()> 0)
         <div class="cart-wrapper">
             <div class="table-responsive-sm">
-                <table class="table">
+                <table class="table table-cart">
                     <thead class="">
                         <tr>
                             <th scope="col" class="text-center">#</th>

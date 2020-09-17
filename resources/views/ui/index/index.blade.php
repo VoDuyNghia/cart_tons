@@ -43,7 +43,7 @@
 
     <div class="wrapper">
         <div class="banner">
-            <div href="{{ getImageDatabase(4)['link'] }}" class="banner__item">
+            <div class="banner__item">
                 <a href="{{ getImageDatabase(4)['link'] }}">
                     <img width="100%" src="{{ getImage(getImageDatabase(4)['image'], 'banners') }}" alt="Banner 1" />
                 </a>
@@ -52,7 +52,7 @@
                     <i class="fal fa-long-arrow-right"></i>
                 </a>
             </div>
-            <div href="{{ getImageDatabase(4)['link'] }}" class="banner__item">
+            <div class="banner__item">
                 <a href="{{ getImageDatabase(4)['link'] }}">
                     <img width="100%" src="{{ getImage(getImageDatabase(5)['image'], 'banners') }}" alt="Banner 2" />
                 </a>

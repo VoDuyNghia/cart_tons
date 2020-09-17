@@ -37,7 +37,7 @@
             </div>
         </div>
     </section>
-    <div class="wrapper">
+    <div class="wrapper" style="font-family: 'Arial, Helvetica, sans-serif' !important;">
         <section class="mb-4">
             <h2 class="h1-responsive font-weight-bold text-center my-4">Thông tin liên hệ</h2>
             <p class="text-center w-responsive mx-auto mb-5">Cảm ơn bạn đã quan tâm đến hệ thống website của chúng tôi. Nếu bạn có thắc mắc vui lòng liên hệ thông tin được đính kèm ở phía dưới. Trân trọng cảm ơn !</p>

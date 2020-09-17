@@ -68,11 +68,6 @@ class IndexController extends Controller
             "Lê Thị Khánh",
             "Lê Thị Nhi",
             "Lê Thị Ngọc",
-            "Trang Bảo",
-            "Nguyễn Hà Thúy",
-            "Đào Quyết Chiến",
-            "Nguyễn Tiến Dũng",
-            "Phạm Hồng Thái",
         ];
 
         $dataPhone = [
@@ -87,11 +82,6 @@ class IndexController extends Controller
             "****754454",
             "****659321",
             "****636589",
-            "****896214",
-            "****065921",
-            "****523921",
-            "****663258",
-            "****885482",
             "****623621",
             "****965212",
             "****032148",
@@ -99,7 +89,7 @@ class IndexController extends Controller
             "****963214",
         ];
 
-        for($i = 0; $i <= 20; $i++) {
+        for($i = 0; $i <= 15; $i++) {
             $productId = rand(0, $number -1);
             
             $data[$i] = [

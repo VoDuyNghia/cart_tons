@@ -37,7 +37,7 @@
             </div>
         </div>
     </section>
-    <div class="wrapper">
+    <div class="wrapper" style="font-family: 'Arial, Helvetica, sans-serif' !important;">
         <section class="section-news">
             <div class="vc_row wpb_row vc_row-fluid edgtf-section vc_custom_1485936704562 edgtf-content-aligment-left edgtf-grid-section" style="">
                <div class="clearfix edgtf-section-inner">

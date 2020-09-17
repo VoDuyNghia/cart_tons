@@ -398,8 +398,10 @@ header {
    font-weight: 800;
    letter-spacing: 1.5px;
    text-transform: uppercase;
-   font-family: "Open Sans", sans-serif;
+   font-family: "Arial, Helvetica, sans-serif" !important;
    outline: none;
+   letter-spacing: 2px;
+   line-height: 1rem;
 }
 
 .menu-bar__cart-btn>a:hover {
@@ -723,13 +725,13 @@ header {
 
 .product__name>a {
    font-weight: bold;
-   font-size: 19px;
+   font-size: 16px;
    color: #333;
    font-family: Oswald, sans-serif;
    outline: none;
    text-transform: uppercase;
    text-decoration: none;
-   line-height: 1.2;
+   line-height: 1.5;
 }
 
 .product__name>a:hover {
@@ -775,7 +777,8 @@ header {
    overflow: hidden;
    position: absolute;
    bottom: -50px;
-   font-family: "Open Sans", sans-serif;
+   font-family: "Arial, Helvetica, sans-serif" !important;
+   letter-spacing: 2px;
    font-size: 14px;
    font-weight: 700;
    transition: 0.3s;
@@ -803,7 +806,7 @@ header {
    height: 32px;
    line-height: 32px;
    padding: 0 17px;
-   font-family: "Open Sans", sans-serif;
+   font-family: "Arial, Helvetica, sans-serif" !important;
    font-size: 11px;
    letter-spacing: 1.5px;
    opacity: 0.9;
@@ -991,7 +994,6 @@ header {
 
 .news-title {
    font-family: Oswald, sans-serif;
-   margin-bottom: 20px;
    line-height: 1.6;
 }
 
@@ -1002,7 +1004,7 @@ header {
    overflow: hidden;
    font-size: 16px;
    color: #808080;
-   font-family: Oswald, sans-serif;
+   font-family: "Arial, Helvetica, sans-serif" !important;
    margin-bottom: 10px;
    line-height: 1.2;
 }
@@ -1147,9 +1149,8 @@ footer {
 .contact-us span {
    display: inline-block;
    color: #acacac;
-   font-size: 14px;
-   font-family: "Open Sans", sans-serif;
-   margin-top: 10px;
+   font-size: 16px;
+   font-family: "font-family: Arial, Helvetica, sans-serif";
 }
 
 .your-email {
@@ -1184,8 +1185,8 @@ footer {
 
 .other-location p {
    color: #acacac;
-   font-size: 14px;
-   font-family: "Open Sans", sans-serif;
+   font-size: 16px;
+   font-family: "font-family: Arial, Helvetica, sans-serif";
 }
 
 .other-location {
@@ -1245,6 +1246,13 @@ footer {
    background-color: #956134;
    border: 2px solid #956134;
    color: #fff;
+   font-family: "Arial, Helvetica, sans-serif" !important;
+}
+
+.edgtf-btn.edgtf-btn-solid:hover {
+   background-color: #30271c;
+   border-color: #30271c;
+   color: white !important;
 }
 
 .edgtf-btn {
@@ -1321,6 +1329,15 @@ footer {
    font-weight: 700;
    line-height: 3.5;
    margin-top: 2.5rem;
+   color: white;
+   text-transform: uppercase;
+}
+
+.banner-title-product-detail {
+   margin: 0 0 1.6rem;
+   font-size: 3rem;
+   font-weight: 700;
+   margin-top: 5.5rem;
    color: white;
    text-transform: uppercase;
 }
@@ -1466,7 +1483,18 @@ footer {
 }
 
 .woocommerce-product-details__short-description {
-   font-family: Oswald,sans-serif !important;
+   font-family: "Arial, Helvetica, sans-serif" !important;
+   text-align: justify;
+}
+
+.description-product {
+   font-family: "Arial, Helvetica, sans-serif" !important;
+   text-align: justify;
+}
+
+.news_body {
+   font-family: "Arial, Helvetica, sans-serif" !important;
+
 }
 
 ins {
@@ -1695,4 +1723,18 @@ button:active {
 
 .input-cart {
   white-space: nowrap;
+}
+
+.table-cart {
+   font-family: "Arial, Helvetica, sans-serif" !important;
+}
+
+.table-hover {
+   font-family: "Arial, Helvetica, sans-serif" !important;
+}
+
+
+.menu-bar__cart-btn>a:hover {
+   background-color: #30271c;
+   border-color: #30271c;
 }
