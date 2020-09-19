@@ -26,7 +26,7 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Your Chat Plugin code -->
-    <div class="fb-customerchat" attribution=setup_tool page_id="101832394966734" theme_color="#956134" logged_in_greeting="Xin chào! Tôi có thể giúp gì cho bạn?" logged_out_greeting="Xin chào! Tôi có thể giúp gì cho bạn?"></div>
+    <div class="fb-customerchat" attribution=setup_tool page_id="101832394966734" theme_color="#0084ff" logged_in_greeting="Xin chào! Tôi có thể giúp gì cho bạn?" logged_out_greeting="Xin chào! Tôi có thể giúp gì cho bạn?"></div>
 
     @include('ui.common.header')
     <main style="position: relative;">

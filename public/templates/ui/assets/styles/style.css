@@ -1242,7 +1242,7 @@ footer {
 
 .back-to-top {
    position: fixed;
-   right: 30px;
+   right: 24px;
    bottom: 140px;
    margin: 0px 0px 50px 0;
    z-index: 10000;
@@ -1253,7 +1253,7 @@ footer {
 
 .call-phone {
    position: fixed;
-   right: 30px;
+   right: 24px;
    bottom: 65px;
    margin: 0px 0px 50px 0;
    z-index: 10000;
