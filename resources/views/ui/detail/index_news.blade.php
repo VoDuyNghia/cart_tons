@@ -48,7 +48,5 @@
         </section>
     </div>
 
-    <button class="back-to-top">
-        <i class="fal fa-long-arrow-right"></i>
-    </button>
+    @include('ui.common.plugin')
 @endsection

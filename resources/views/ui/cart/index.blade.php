@@ -127,6 +127,8 @@
         @else
         Không có sản phẩm nào trong giỏ hàng. Quay lại <a href="{{ route('ui.index.index') }}">TRANG CHỦ</a> để tiếp tục mua sắm.
         @endif
+
+        @include('ui.common.plugin')
     </div>
 @endsection
 @section('myscript')

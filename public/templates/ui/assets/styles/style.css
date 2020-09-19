@@ -1242,30 +1242,24 @@ footer {
 
 .back-to-top {
    position: fixed;
-   width: 30px;
+   right: 30px;
+   bottom: 140px;
+   margin: 0px 0px 50px 0;
+   z-index: 10000;
+   height: 60px;
+   text-align: center;
+   display: block;
+}
+
+.call-phone {
+   position: fixed;
    right: 30px;
    bottom: 65px;
    margin: 0px 0px 50px 0;
    z-index: 10000;
-   width: 30px;
-   height: 30px;
-   line-height: 30px;
+   height: 60px;
    text-align: center;
    display: block;
-   color: #fff;
-   font-size: 20px;
-   box-sizing: border-box;
-   background-color: #956134;
-   color: #fff;
-   outline: none;
-   border: none;
-   cursor: pointer;
-   border-radius: 50%;
-}
-
-
-.back-to-top i {
-   transform: rotate(-90deg);
 }
 
 .table tr th {
