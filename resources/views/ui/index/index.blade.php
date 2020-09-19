@@ -47,18 +47,10 @@
                 <a href="{{ getImageDatabase(4)['link'] }}">
                     <img width="100%" src="{{ getImage(getImageDatabase(4)['image'], 'banners') }}" alt="Banner 1" />
                 </a>
-                <a href="{{ getImageDatabase(4)['link'] }}" class="banner__read-more">
-                    <span>XEM TIẾP</span>
-                    <i class="fal fa-long-arrow-right"></i>
-                </a>
             </div>
             <div class="banner__item">
                 <a href="{{ getImageDatabase(4)['link'] }}">
                     <img width="100%" src="{{ getImage(getImageDatabase(5)['image'], 'banners') }}" alt="Banner 2" />
-                </a>
-                <a href="{{ getImageDatabase(4)['link'] }}" class="banner__read-more">
-                    <span>XEM TIẾP</span>
-                    <i class="fal fa-long-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -73,13 +65,9 @@
     </div>
 
     <div class="wrapper">
-        <div class="banner-sale" style="background-image: url({{ getImage(getImageDatabase(6)['image'], 'banners') }});">
-            <div>
-                <a href="{{ getImageDatabase(6)['link'] }}">
-                    <button>XEM TIẾP</button>
-                </a>
-            </div>
-        </div>
+        <a href="{{ getImageDatabase(6)['link'] }}">
+            <div class="banner-sale" style="background-image: url({{ getImage(getImageDatabase(6)['image'], 'banners') }});"></div>
+        </a>
     </div>
 
     <div id="news" class="wrapper">

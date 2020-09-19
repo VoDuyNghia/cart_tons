@@ -1,6 +1,7 @@
 @extends('ui.common.master')
 @section('seo')
     <title>Giỏ hàng | Quang Vinh - Coffee</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="Mô tả">
     <meta name="keywords" content="Mô tả">
     <meta name="author" content="Quang Vinh - Coffee">
@@ -42,6 +43,7 @@
 
     <div class="wrapper mt-5">
         @if(Cart::count()> 0)
+        <form id="formAjax" method="POST" data-url="{{ route('cart.update') }}">
         <div class="cart-wrapper">
             <div class="table-responsive-sm">
                 <table class="table table-cart">
@@ -60,7 +62,7 @@
                         @forelse(Cart::content()->toArray() as $key => $value)
                         <tr>
                             <th scope="row" class="text-center">
-                                <a href="javascript:void(0)" onclick="cart.delete('{{ $key }}' , 'detail')" class="remove" aria-label="Remove this item" data-product_id="1532" data-product_sku="12">×</a> || <button type="button" onclick="cart.update('{{ $key }}')" class="btn btn-info">CẬP NHẬT</button>
+                                <a href="javascript:void(0)" onclick="cart.delete('{{ $key }}' , 'detail')" class="remove" aria-label="Remove this item" data-product_id="1532" data-product_sku="12">×</a>
                             </th>
                             <td>{{ $value['name'] }}</td>
                             <td>
@@ -106,19 +108,27 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <a itemprop="url" href="{{ route('ui.cart.checkout') }}" target="_self" class="edgtf-btn edgtf-btn-medium edgtf-btn-solid checkout-button alt wc-forward">
-                            <span class="edgtf-btn-text">TIẾN HÀNH THANH TOÁN</span>
-                        </a>
+                    <div class="cart-index col-md-6 text-right">
+                        <div class="cart mb-3">
+                            <button style=" background-color: #dbb791; border-color: #dbb791;" type="submit" class="text-center edgtf-btn edgtf-btn-medium edgtf-btn-solid checkout-button alt wc-forward"">
+                                <span class="btn-content">CẬP NHẬT GIÁ TIỀN</span>
+                            </button>
+                        </div>
+                        <div class="cart">
+                            <a href="{{ route('ui.cart.checkout') }}" target="_self" class="text-center edgtf-btn edgtf-btn-medium edgtf-btn-solid checkout-button alt wc-forward">
+                                <span class="edgtf-btn-text">TIẾN HÀNH THANH TOÁN</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
         @else
         Không có sản phẩm nào trong giỏ hàng. Quay lại <a href="{{ route('ui.index.index') }}">TRANG CHỦ</a> để tiếp tục mua sắm.
         @endif
     </div>
 @endsection
 @section('myscript')
-<script src="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection

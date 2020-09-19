@@ -94,7 +94,7 @@
                     </div>
                 </div>
              </div>
-             <div class="col-md-6">
+             <div class="col-md-6 info-product">
                 <div class="col-md-12">
                     <div class="edgtf-single-product-summary">
                         <div class="summary entry-summary">
@@ -166,7 +166,7 @@
                                             alt="{{ $value['name'] }}" />
                                     </a>
                                     <div class="product__add-to-cart">
-                                        <button id="product-{{ $value['id'] }}" class="product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">
+                                        <button id="product-{{ $value['id'] }}" class="poduct_detail_button product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <input type="hidden" name="qty[{{ $value['id']}}]" readonly value="1">
                                             <span>THÊM GIỎ HÀNG</span>
@@ -195,7 +195,6 @@
                     </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
 
@@ -206,5 +205,5 @@
 @endsection
 @section('myscript')
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @endsection

@@ -193,19 +193,29 @@ class CartController extends Controller
 
     public function updateCart(Request $request)
     {
-        $result = Cart::update($request['rowId'], ['qty' => $request['qty']]);
+        try {
+            $data = $request->all()['qty'];
 
-        if((boolean) $result)
-        {
-            return $this->sendResult([
-                'status' => true, 
-                'message' => 'Cập nhật thành công' , 
-                'amount' => Cart::priceTotal('0', '0', ','). ' đ',
-                'total' => Cart::content()->count(),
-            ], 200);
+            foreach($data as $key => $value) {
+                $qty = $value >=1 ? $value : 1;
+
+                $result = Cart::update($key, ['qty' => $qty]);
+            }
+    
+            if((boolean) $result) {
+                return $this->sendResult([
+                    'status' => true, 
+                    'message' => 'Cập nhật thành công!' , 
+                    'amount' => Cart::priceTotal('0', '0', ','). ' đ',
+                    'total' => Cart::content()->count(),
+                ], 200);
+            }
+
+            return $this->sendResult(['message' => 'Cập nhật thất bại!'], 400);
+
+        } catch(Exception $e) {
+            return $this->sendResult(['message' => 'Xảy ra lỗi. Vui lòng thử lại sau!'], 500);
         }
-
-        return $this->sendResult(['message' => 'Cập nhật thất bại'], 400);
     }
 
     public function indexCart()

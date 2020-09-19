@@ -77,7 +77,7 @@ Route::namespace('UI')->group(function () {
     Route::get('cart.html', 'CartController@indexCart')->name('ui.cart.index');
     Route::get('cart/add', 'CartController@addProduct')->name('cart.add');
     Route::get('cart/delete', 'CartController@removeFromCart')->name('cart.add');
-    Route::get('cart/update', 'CartController@updateCart')->name('cart.update');
+    Route::post('cart/update', 'CartController@updateCart')->name('cart.update');
 
     Route::get('news/{name}-{id}.html', 'DetailController@indexNews')->name('ui.detail.index_news');
     Route::get('products/{name}-{id}.html', 'DetailController@indexProduct')->name('ui.detail.index_product');
