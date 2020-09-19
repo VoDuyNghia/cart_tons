@@ -20,7 +20,7 @@ $('document').ready(function () {
             },
             success: function (json) {
                 html =
-                    '<option selected="selected" value="">Chọn quận / huyện</option>';
+                    '<option selected="selected" value="">Chọn Quận/Huyện</option>';
 
                 for (i = 0; i < json.length; i++) {
                     html += '<option value="' + json[i]['id'] + '"';
@@ -36,6 +36,40 @@ $('document').ready(function () {
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(
                     "Xảy ra lỗi. Vui lòng liên hệ bộ phận trực tuyến để được hỗ trợ")
+            }
+        });
+    });
+
+    $('select[id="customer_shipping_district"]').on('change', function (e) {
+        if (this.value == '') {
+            district_id = 0;
+        } else {
+            district_id = this.value;
+        }
+
+        $.ajax({
+            url: 'wards?id=' + district_id,
+            method: 'get',
+            dataType: 'JSON',
+            beforeSend: function () {
+                $('.order-checkout__loading--box').addClass('show')
+            },
+            complete: function () {
+                $('.order-checkout__loading--box').removeClass('show')
+            },
+            success: function (json) {
+                html =
+                    '<option selected="selected" value="">Chọn Phường xã/Thị trấn</option>';
+
+                for (i = 0; i < json.length; i++) {
+                    html += '<option value="' + json[i]['id'] + '"';
+                    html += '>' + json[i]['name'] + '</option>';
+                }
+
+                $('select[name=\'ward_id\']').html(html);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Xảy ra lỗi. Vui lòng liên hệ bộ phận trực tuyến để được hỗ trợ")
             }
         });
     });
@@ -103,7 +137,7 @@ $('document').ready(function () {
             rules: {
                 "username": {
                     required: true,
-                    minlength: 10,
+                    minlength: 5,
                     maxlength: 100
                 },
                 "email": {
@@ -127,12 +161,15 @@ $('document').ready(function () {
                 },
                 'district_id': {
                     required: true
+                },
+                'ward_id': {
+                    required: true
                 }
             },
             messages: {
                 "username": {
                     required: "Bắt buộc nhập họ và tên",
-                    minlength: "Hãy nhập ít nhất 10 ký tự",
+                    minlength: "Hãy nhập ít nhất 5 ký tự",
                     maxlength: "Hãy nhập tối thiểu 100 ký tự"
                 },
                 "email": {
@@ -150,7 +187,10 @@ $('document').ready(function () {
                     required: "Hãy chọn ít nhất 1 tỉnh thành",
                 },
                 "district_id": {
-                    required: "Hãy chọn ít nhất 1 quận/huyện",
+                    required: "Hãy chọn ít nhất 1 Quận/Huyện",
+                },
+                "ward_id": {
+                    required: "Hãy chọn ít nhất 1 Phường xã/Thị trấn",
                 },
                 "address": {
                     required: "Bắt buộc nhập địa chỉ",

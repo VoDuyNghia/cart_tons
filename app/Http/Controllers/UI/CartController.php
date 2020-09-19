@@ -6,6 +6,7 @@ use Exception;
 use Carbon\Carbon;
 use App\Jobs\SendEmail;
 use App\Models\Admin\City;
+use App\Models\Admin\Ward;
 use App\Mail\SendMailOrder;
 use App\Models\Admin\Order;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class CartController extends Controller
 
     public function postCheckout(OrderRequest $request)
     {
-        $data = $request->only('username', 'email', 'phone', '', 'customer_shipping_province', 'district_id', 'address', 'message_user');
+        $data = $request->only('username', 'email', 'phone', '', 'customer_shipping_province', 'district_id', 'address', 'message_user', 'ward_id');
 
         try{
             DB::beginTransaction();
@@ -91,6 +92,13 @@ class CartController extends Controller
 
         return Response::json(District::where('city_id', $city_id)->get());
     }
+
+    public function getWard(Request $request)
+    {
+        $district_id = $request->get('id');
+
+        return Response::json(Ward::where('district_id', $district_id)->get());
+    }
     
     private function addProfile($data) {
         $result = Profile::create($data);
@@ -136,7 +144,7 @@ class CartController extends Controller
     private function addOrderProduct($order)
     {
         foreach (Cart::content() as $item) {
-            $result = $order->products()->attach($item->id, [
+            $order->products()->attach($item->id, [
                 'quantity' => $item->qty,
                 'shape' => $item->options->shape,
                 'created_at' => Carbon::now(),
@@ -144,11 +152,7 @@ class CartController extends Controller
             ]);
         }
 
-        if(!$result) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     public function addProduct(Request $request) {

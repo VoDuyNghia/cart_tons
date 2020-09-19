@@ -15,7 +15,8 @@ class Profile extends Model
         'email',
         'phone',
         'address',
-        'district_id'
+        'district_id',
+        'ward_id'
     ];
 
     public function orders()

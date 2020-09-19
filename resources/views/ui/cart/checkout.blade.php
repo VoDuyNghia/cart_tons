@@ -228,13 +228,13 @@
                                                     <div class="order-checkout__loading--box">
                                                         <div class="order-checkout__loading--circle"></div>
                                                     </div>
-                                                    <div class="field field-show-floating-label  field-half ">
+                                                    <div class="field field-show-floating-label field-half ">
                                                         <div class="field-input-wrapper field-input-wrapper-select">
                                                             <label class="field-label"
-                                                                for="customer_shipping_province">Tỉnh / thành </label>
+                                                                for="customer_shipping_province">Tỉnh / Thành </label>
                                                             <select class="field-input" id="customer_shipping_province"
                                                                 name="customer_shipping_province" size='1'>
-                                                                <option data-price="0" value=""> Chọn tỉnh / thành
+                                                                <option data-price="0" value=""> Chọn Tỉnh/Thành
                                                                 </option>
                                                                 @foreach ($dataCity as $value)
                                                                     <option data-price="{{ $value['price'] }}"
@@ -244,29 +244,33 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="field field-show-floating-label  field-half ">
+                                                    <div class="field field-show-floating-label field-half ">
                                                         <div class="field-input-wrapper field-input-wrapper-select">
                                                             <label class="field-label"
-                                                                for="customer_shipping_district">Quận
-                                                                / huyện</label>
+                                                                for="customer_shipping_district">Quận / Huyện</label>
                                                             <select class="field-input" id="customer_shipping_district"
                                                                 name="district_id">
-                                                                <option data-code="" value="">Chọn quận / huyện
-                                                                </option>
+                                                                <option data-code="" value="">Chọn Quận/Huyện</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div id="div_location_country_not_vietnam"
-                                                        class="section-customer-information ">
-                                                        <div class="field field-two-thirds"
-                                                            style="width: 100% !important;">
-                                                            <div class="field-input-wrapper">
-                                                                <label class="field-label" for="address">Địa
-                                                                    chỉ</label>
-                                                                <input placeholder="Địa chỉ" autocapitalize="off"
-                                                                    spellcheck="false" class="field-input" size="30"
-                                                                    type="text" id="address" name="address" value="" />
-                                                            </div>
+                                                    <div class="field field-show-floating-label field-half ">
+                                                        <div class="field-input-wrapper field-input-wrapper-select">
+                                                            <label class="field-label"
+                                                                for="customer_shipping_ward">Phường xã / Thị trấn</label>
+                                                            <select class="field-input" id="customer_shipping_ward"
+                                                                name="ward_id">
+                                                                <option data-code="" value="">Chọn Phường xã/Thị trấn</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field field-show-floating-label field-half ">
+                                                        <div class="field-input-wrapper">
+                                                            <label class="field-label" for="address">Địa
+                                                                chỉ</label>
+                                                            <input placeholder="Địa chỉ" autocapitalize="off"
+                                                                spellcheck="false" class="field-input" size="30"
+                                                                type="text" id="address" name="address" value="" />
                                                         </div>
                                                     </div>
                                                 </div>

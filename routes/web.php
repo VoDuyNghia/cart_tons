@@ -71,6 +71,7 @@ Route::namespace('UI')->group(function () {
     
     Route::get('cities', 'CartController@getCity')->name('ajax.city');
     Route::get('districts', 'CartController@getDistrict')->name('ajax.district');
+    Route::get('wards', 'CartController@getWard')->name('ajax.ward');
     Route::get('checkout', 'CartController@checkOut')->name('ui.cart.checkout');
     Route::post('checkout', 'CartController@postCheckOut')->name('ui.cart.checkout');
 

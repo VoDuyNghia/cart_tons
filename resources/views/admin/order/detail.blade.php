@@ -96,6 +96,16 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group row">
+                                                    <label class="col-sm-4 col-form-label">Phường xã</label>
+                                                    <div class="col-sm-8">
+                                                        <input readonly value="{{ $dataWard['prefix'] .' '. $dataWard['name']}}" data-role="check" class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
                                                     <label class="col-sm-4 col-form-label text-danger">Trạng thái đơn hàng</label>
                                                     <div class="col-sm-4">
                                                        <select class="form-control" name="status">

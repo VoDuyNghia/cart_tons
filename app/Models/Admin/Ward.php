@@ -5,12 +5,13 @@ namespace App\Models\Admin;
 use App\Models\Admin\Profile;
 use Illuminate\Database\Eloquent\Model;
 
-class District extends Model
+class Ward extends Model
 {
     protected $fillable = [
         'name',
         'prefix',
         'city_id',
+        'district_id',
     ];
 
     public function profiles()
@@ -18,13 +19,8 @@ class District extends Model
         return $this->hasMany(Profile::class);
     }
 
-    public function city()
+    public function district()
     {
-        return $this->belongsTo(City::class);
-    }
-
-    public function wards()
-    {
-        return $this->hasMany(Ward::class);
+        return $this->belongsTo(District::class);
     }
 }

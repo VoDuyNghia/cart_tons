@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Exception;
+use App\Models\Admin\Ward;
 use App\Models\Admin\Order;
 use Illuminate\Http\Request;
 use App\Models\Admin\District;
@@ -63,7 +64,9 @@ class OrderController extends Controller
 
         $dataDistrict = District::with('city')->find($data['profile']['district_id'])->toArray();
 
-        return view ('admin.order.detail', compact('data', 'dataDistrict'));
+        $dataWard = Ward::find($data['profile']['ward_id'])->toArray();
+
+        return view ('admin.order.detail', compact('data', 'dataDistrict', 'dataWard'));
     }
 
     public function update(Request $request, $id)
