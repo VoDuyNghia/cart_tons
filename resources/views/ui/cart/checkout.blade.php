@@ -193,8 +193,8 @@
                                             </div>
                                             <div class="field  field-two-thirds">
                                                 <div class="field-input-wrapper">
-                                                    <label class="field-label" for="email">Email</label>
-                                                    <input autocomplete="off" placeholder="Email" autocapitalize="off" spellcheck="false"
+                                                    <label class="field-label" for="email">Email (Có thể để trống)</label>
+                                                    <input autocomplete="off" placeholder="Email (Có thể để trống)" autocapitalize="off" spellcheck="false"
                                                         class="field-input" size="30" type="email" id="email"
                                                         name="email" />
                                                 </div>
@@ -356,6 +356,21 @@
             </div>
         </div>
     </div>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '162707774959434');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=162707774959434&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel Code -->
     <script src='{{ asset('templates/ui/') }}/assets/global/js/customize.js' type='text/javascript'></script>
     <script src="{{ asset('templates/admin/') }}/assets/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
 </body>

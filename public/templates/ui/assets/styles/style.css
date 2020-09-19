@@ -846,6 +846,14 @@ header {
    position: relative;
 }
 
+.banner-two {
+   margin-top: 20px;
+}
+
+.banner-two  .banner__item {
+   padding: 0;
+}
+
 @media screen and (max-width: 480px) {
    .banner-sale {
       height: 10vh;
@@ -1237,7 +1245,7 @@ footer {
    width: 30px;
    right: 30px;
    bottom: 65px;
-   margin: 0;
+   margin: 0px 0px 50px 0;
    z-index: 10000;
    width: 30px;
    height: 30px;
@@ -1252,11 +1260,9 @@ footer {
    outline: none;
    border: none;
    cursor: pointer;
+   border-radius: 50%;
 }
 
-.back-to-top:hover {
-   /* background-color: #956134; */
-}
 
 .back-to-top i {
    transform: rotate(-90deg);

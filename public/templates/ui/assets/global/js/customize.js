@@ -141,7 +141,6 @@ $('document').ready(function () {
                     maxlength: 100
                 },
                 "email": {
-                    required: true,
                     email: true,
                     maxlength: 100
                 },
@@ -173,7 +172,6 @@ $('document').ready(function () {
                     maxlength: "Hãy nhập tối thiểu 100 ký tự"
                 },
                 "email": {
-                    required: "Bắt buộc nhập email",
                     email: "Hãy nhập đúng định dạng email",
                     maxlength: "Hãy nhập tối thiểu 100 ký tự"
                 },

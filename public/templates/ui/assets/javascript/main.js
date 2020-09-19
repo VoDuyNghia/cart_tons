@@ -229,8 +229,6 @@ var cart = {
             title: 'Thêm thành công.',
             footer: '<span>Nếu bạn cần hỗ trợ gấp, vui lòng liên hệ trực tiếp đến <a href="https://www.facebook.com/quangvinh.coffee" target="_blank">FANPAGE</a> để được giải đáp thắc mắc nhanh nhất.</span>'
           })
-
-          setTimeout(function () { window.location.href = "/cart.html";}, 2000);
         }
       },
       fail: function (json) {
@@ -242,7 +240,7 @@ var cart = {
         })
       },
       success: function (json) {
-        $('#cart').load('cart-info ul li');
+        $('#cart').load('/cart-info ul li');
         document.getElementById("cart-amount").innerHTML = json.amount;
         document.getElementById("cart-total").innerHTML = json.total;
         document.getElementById("cart-total-button").innerHTML = json.total;
@@ -290,7 +288,7 @@ var cart = {
         })
       },
       success: function (json) {
-        $('#cart').load('cart-info ul li');
+        $('#cart').load('/cart-info ul li');
         document.getElementById("cart-amount").innerHTML = json.amount;
         document.getElementById("cart-total").innerHTML = json.total;
       },
