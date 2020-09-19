@@ -849,10 +849,14 @@ header {
 @media screen and (max-width: 480px) {
    .banner-sale {
       height: 10vh;
-      margin: 0px -15px 40px;
+      margin: 0px 0px 40px;
    }
    .image-detail {
       display: none !important;
+   }
+
+   .price-mobile {
+      display: flex;
    }
 }
 
@@ -1775,4 +1779,8 @@ button:active {
    .cart-index .cart button {
       width: 60%;
    }
+}
+
+.product__add-to-cart-button span {
+   font-family: "font-family: Arial, Helvetica, sans-serif";
 }

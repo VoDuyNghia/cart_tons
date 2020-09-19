@@ -57,7 +57,7 @@
                     </svg>
                 </div>
                 <div class="order-summary-toggle-total-recap" data-checkout-payment-due-target="53800000">
-                    <span class="total-recap-final-price">538,000₫</span>
+                    <span class="total-recap-final-price">{{Cart::subtotal(0, 0, ',')}}₫</span>
                 </div>
             </div>
         </div>

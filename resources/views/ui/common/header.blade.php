@@ -44,7 +44,7 @@
     <div class="menu-bar-mobile-wrapper">
         <nav class="menu-wrapper menu-bar-mobile">
             <ul>
-                <li><a href="#">Trang chủ</a></li>
+                <li><a href="{{ route('ui.index.index') }}">Trang chủ</a></li>
                 <li><a href="{{ url()->full() == route('ui.index.index') ? '#news' : route('ui.index.index')}}">Tin tức</a></li>
                 <li><a href="{{ url()->full() == route('ui.index.index') ? '#products' : route('ui.index.index')}}">Sản phẩm</a></li>
                 <li><a href="{{ route('ui.index.about_us') }}">Về chúng tôi</a></li>

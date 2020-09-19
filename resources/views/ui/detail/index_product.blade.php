@@ -102,7 +102,8 @@
                             <div class="woocommerce-product-rating">
                                 <div class="product__rating" data-rating="{{ $dataProduct['rate'] }}"></div>
                             </div>
-                            <p class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{number_format($dataProduct['price'])}} đ</span></del>
+                            <p class="price-mobile">
+                                <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{number_format($dataProduct['price'])}} đ</span></del>
                                 <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{number_format($dataProduct['sale_price'])}} đ</span></ins>
                             </p>
                             <div class="woocommerce-product-details__short-description">
