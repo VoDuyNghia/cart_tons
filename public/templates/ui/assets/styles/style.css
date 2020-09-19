@@ -858,6 +858,14 @@ header {
    .price-mobile {
       display: flex;
    }
+   
+   .banner-two {
+      width: 330px;
+   }
+   
+   .banner-two a img {
+      height: 136px;
+   }
 }
 
 .banner-sale>div {

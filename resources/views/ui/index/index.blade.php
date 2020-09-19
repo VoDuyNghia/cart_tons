@@ -64,10 +64,12 @@
         @include('ui.index.product')
     </div>
 
-    <div class="wrapper">
-        <a href="{{ getImageDatabase(6)['link'] }}">
-            <div class="banner-sale" style="background-image: url({{ getImage(getImageDatabase(6)['image'], 'banners') }});"></div>
-        </a>
+    <div class="wrapper banner-two">
+        <div class="banner__item">
+            <a href="{{ getImageDatabase(6)['link'] }}">
+                <img width="100%" src="{{ getImage(getImageDatabase(6)['image'], 'banners') }}" alt="Banner 3">
+            </a>
+        </div>
     </div>
 
     <div id="news" class="wrapper">
