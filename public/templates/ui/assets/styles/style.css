@@ -878,13 +878,13 @@ header {
    .back-to-top {
       width: 30px;
       height: 30px !important;
-      bottom: 85px !important;
+      bottom: 100px !important;
    }
    
    .call-phone {
       width: 30px;
       height: 30px !important;
-      bottom: 20px !important;
+      bottom: 50px !important;
    }
 }
 
