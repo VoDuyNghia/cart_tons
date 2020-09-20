@@ -191,14 +191,14 @@ $(document).ready(function () {
     }
   });
 
-  function randomIntFromInterval(min, max) { 
+  function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   setInterval(function () {
     someonePurchasedTracking();
-  }, randomIntFromInterval(7,12)*1000);
-  
+  }, randomIntFromInterval(7, 12) * 1000);
+
   $("#notify-close").click(function () {
     $("#message-purchased").hide();
   });
@@ -227,6 +227,11 @@ var cart = {
           Swal.fire({
             icon: 'success',
             title: 'Thêm thành công.',
+            html:
+              `<button type="button" role="button" tabindex="0" onclick="closeSwal()" class="SwalBtn1 customSwalBtn">OK</button>
+            <button type="button" role="button" tabindex="0" onclick="location.href ='/cart.html'" class="SwalBtn2 customSwalBtn">THANH TOÁN</button>`,
+            showCancelButton: false,
+            showConfirmButton: false,
             footer: '<span>Nếu bạn cần hỗ trợ gấp, vui lòng liên hệ trực tiếp đến <a href="https://www.facebook.com/quangvinh.coffee" target="_blank">FANPAGE</a> để được giải đáp thắc mắc nhanh nhất.</span>'
           })
         }
@@ -304,6 +309,7 @@ var cart = {
 
   },
 }
+
 
 function setCookie(exdays) {
   $.ajax({
@@ -442,13 +448,13 @@ $(document)
         return; // exit this handler for other keys
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
-});
+  });
 
 $('body').on('submit', 'form#formAjax', function (e) {
   $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
   });
 
   e.preventDefault();
@@ -456,44 +462,47 @@ $('body').on('submit', 'form#formAjax', function (e) {
   formData = new FormData(this);
 
   Swal.fire({
-      title: "Bạn có chắc chắn muốn cập nhật đơn hàng không",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Xác nhận',
-      cancelButtonText: 'Hủy bỏ',
-      text: "Hãy cân nhắc trước khi thao tác!",
+    title: "Bạn có chắc chắn muốn cập nhật đơn hàng không",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Xác nhận',
+    cancelButtonText: 'Hủy bỏ',
+    text: "Hãy cân nhắc trước khi thao tác!",
   }).then((result) => {
-      if (result.value) {
-          $.ajax({
-              type: 'POST',
-              url: actionURL,
-              data: formData,
-              beforeSend: function () {
-                  Swal.showLoading();
-              },
-              success: function (data) {
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Cập nhật thành công.',
-                  footer: '<span>Nếu bạn cần hỗ trợ gấp, vui lòng liên hệ trực tiếp đến <a href="https://www.facebook.com/quangvinh.coffee" target="_blank">FANPAGE</a> để được giải đáp thắc mắc nhanh nhất.</span>'
-                })
-                setTimeout(function () { location.reload(); }, 2000);
-              },
-              error: function (reject) {
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Đã xảy ra lỗi!',
-                  text: 'Xin lỗi vì sự bất tiện mà quý khách đang gặp phải. Vui lòng thử lại sau ít phút nữa. Trân trọng cảm ơn!',
-                  footer: '<span>Nếu vẫn tiếp tục xảy ra lỗi, vui lòng liên hệ trực tiếp đến <a href="https://www.facebook.com/quangvinh.coffee" target="_blank">FANPAGE</a> để được hỗ trợ nhanh chóng.</span>'
-                })
-              },
-              cache: false,
-              contentType: false,
-              processData: false,
-          });
-      }
+    if (result.value) {
+      $.ajax({
+        type: 'POST',
+        url: actionURL,
+        data: formData,
+        beforeSend: function () {
+          Swal.showLoading();
+        },
+        success: function (data) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Cập nhật thành công.',
+            footer: '<span>Nếu bạn cần hỗ trợ gấp, vui lòng liên hệ trực tiếp đến <a href="https://www.facebook.com/quangvinh.coffee" target="_blank">FANPAGE</a> để được giải đáp thắc mắc nhanh nhất.</span>'
+          })
+          setTimeout(function () { location.reload(); }, 2000);
+        },
+        error: function (reject) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Đã xảy ra lỗi!',
+            text: 'Xin lỗi vì sự bất tiện mà quý khách đang gặp phải. Vui lòng thử lại sau ít phút nữa. Trân trọng cảm ơn!',
+            footer: '<span>Nếu vẫn tiếp tục xảy ra lỗi, vui lòng liên hệ trực tiếp đến <a href="https://www.facebook.com/quangvinh.coffee" target="_blank">FANPAGE</a> để được hỗ trợ nhanh chóng.</span>'
+          })
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+      });
+    }
   });
 });
 
+function closeSwal() {
+  swal.close()
+}

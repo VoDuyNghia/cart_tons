@@ -1868,3 +1868,33 @@ button:active {
 .product__add-to-cart-button span {
    font-family: "font-family: Arial, Helvetica, sans-serif";
 }
+
+.customSwalBtn{
+   border: 0;
+   border-radius: 3px;
+   box-shadow: none;
+   color: #fff;
+   cursor: pointer;
+   font-size: 17px;
+   font-weight: 500;
+   margin: 30px 5px 0px 5px;
+   padding: 10px 32px;
+}
+
+.SwalBtn1 {
+   border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #3085d6;
+    color: #fff;
+    font-size: 1.0625em;
+}
+
+.SwalBtn2 {
+   border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: #956134;
+    color: #fff;
+    font-size: 1.0625em;
+}
