@@ -128,8 +128,6 @@
     <script src={{ url('ckeditor/ckeditor.js') }}></script>
     <script>
     CKEDITOR.replace( 'description', {
-        // filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
-    } );
+    });
     </script>
-    @include('ckfinder::setup')
 @endsection
