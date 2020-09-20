@@ -41,7 +41,7 @@
                                         <label class="col-sm-2 col-form-label">Chi tiết</label>
                                         <div class="col-sm-6">
                                             <textarea required data-role="check" class="form-control" placeholder="Chi tiết"
-                                                name="detail" cols="30" rows="5" id="description"></textarea>
+                                                name="detail" cols="30" rows="5" id="detail"></textarea>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="error error-description"></div>
@@ -156,14 +156,13 @@
 @section('myjavascript')
     <script src={{ url('ckeditor/ckeditor.js') }}></script>
     <script>
-    CKEDITOR.replace( 'description', {
-        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        CKEDITOR.replace( 'description', {
+            // filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        });
 
-    } );
-
-    CKEDITOR.replace( 'detail', {
-        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
-
-    } );
+        CKEDITOR.replace( 'detail', {
+            // filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        });
+    </script>
     @include('ckfinder::setup')
 @endsection

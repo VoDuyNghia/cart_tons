@@ -169,15 +169,13 @@
 @section('myjavascript')
     <script src={{ url('ckeditor/ckeditor.js') }}></script>
     <script>
-    CKEDITOR.replace( 'description', {
-        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        CKEDITOR.replace( 'description', {
+            // filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        });
 
-    } );
-
-    CKEDITOR.replace( 'detail', {
-        filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
-
-    } );
+        CKEDITOR.replace( 'detail', {
+            // filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        });
     </script>
     @include('ckfinder::setup')
 @endsection
