@@ -64,7 +64,7 @@ class CartController extends Controller
             }
 
             if($this->addOrderProduct($order)) {
-                SendEmail::dispatch(new SendMailOrder($order->toArray()), 'nghia97dn@gmail.com');
+                SendEmail::dispatch(new SendMailOrder($order->toArray()), 'vinhnguyenquang0719@gmail.com');
                 $request->session()->put('success', 'ok');
                 DB::commit();
                 
