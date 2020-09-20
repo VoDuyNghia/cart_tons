@@ -73,7 +73,7 @@
                             <td>
                                 <div class="input-group" style="flex-wrap: unset; justify-content: center;">
                                     <span class="input-group-prepend">
-                                        <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="qty[{{$key}}]">
+                                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="minus" data-field="qty[{{$key}}]">
                                             <span class="fa fa-minus"></span>
                                         </button>
                                     </span>
