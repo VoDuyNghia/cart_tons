@@ -24,6 +24,10 @@ body {
    padding: 70px 0 0 0;
 }
 
+#products {
+   margin-top: 5rem;
+}
+
 .background-image {
    height: 100%;
    background-repeat: no-repeat;
@@ -613,8 +617,13 @@ header {
    .banner {
       margin-bottom: -50px;
    }
+
    .title {
-      margin: 0 !important;
+      margin-bottom: 20px !important;
+   }
+
+   .title-main {
+      font-size: 25px !important;
    }
    #products {
       margin-top: 4rem;
@@ -687,8 +696,7 @@ header {
 /* Title */
 
 .title {
-   margin-bottom: 80px;
-   text-align: center;
+   margin-bottom: 10px;
 }
 
 .title-sub {
@@ -702,7 +710,7 @@ header {
 }
 
 .title-main {
-   margin: 20px 0;
+   margin: 10px 0;
    font-size: 35px;
    letter-spacing: 1px;
    line-height: 1.14286em;
@@ -939,11 +947,11 @@ header {
 
    .background-image {
       height: 100%;
-      background-size: 100% 245px;
+      background-size: 100% 155px;
    }
 
    .background-home {
-      height: 288px;
+      height: 210px;
       padding: 30px 15px 0 15px;
   }
 
@@ -1031,7 +1039,6 @@ header {
 }
 
 .news {
-   padding: 0 10px;
    outline: none;
 }
 
@@ -1060,6 +1067,10 @@ header {
 @media screen and (min-width: 769px) {
    .news-img {
       height: 220px;
+   }
+
+   .news {
+      margin-right: 10px;
    }
 }
 
@@ -1885,7 +1896,7 @@ button:active {
    border: 0;
     border-radius: .25em;
     background: initial;
-    background-color: #3085d6;
+    background-color: #dbb791;
     color: #fff;
     font-size: 1.0625em;
 }

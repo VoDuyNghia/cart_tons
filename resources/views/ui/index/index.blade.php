@@ -41,21 +41,6 @@
         </div>
     </section>
 
-    <div class="wrapper">
-        <div class="banner">
-            <div class="banner__item">
-                <a href="{{ getImageDatabase(4)['link'] }}">
-                    <img width="100%" src="{{ getImage(getImageDatabase(4)['image'], 'banners') }}" alt="Banner 1" />
-                </a>
-            </div>
-            <div class="banner__item">
-                <a href="{{ getImageDatabase(4)['link'] }}">
-                    <img width="100%" src="{{ getImage(getImageDatabase(5)['image'], 'banners') }}" alt="Banner 2" />
-                </a>
-            </div>
-        </div>
-    </div>
-
     <div id="products"  class="wrapper">
         <div class="title">
             <h4 class="title-main">SẢN PHẨM MỚI NHẤT</h4>

@@ -228,7 +228,7 @@ var cart = {
             icon: 'success',
             title: 'Thêm thành công.',
             html:
-              `<button type="button" role="button" tabindex="0" onclick="closeSwal()" class="SwalBtn1 customSwalBtn">OK</button>
+              `<button type="button" role="button" tabindex="0" onclick="closeSwal()" class="SwalBtn1 customSwalBtn">TIẾP TỤC MUA HÀNG</button>
             <button type="button" role="button" tabindex="0" onclick="location.href ='/cart.html'" class="SwalBtn2 customSwalBtn">THANH TOÁN</button>`,
             showCancelButton: false,
             showConfirmButton: false,
