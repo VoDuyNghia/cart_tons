@@ -25,7 +25,7 @@ body {
 }
 
 #products {
-   margin-top: 5rem;
+   margin-top: 3rem;
 }
 
 .background-image {
@@ -74,7 +74,7 @@ body {
    }
 
    #news {
-      margin-top: 70px;
+      margin-top: 3rem;
    }
 
    .background-image {
@@ -89,6 +89,10 @@ body {
 
    .background-home {
       height: 710px;
+   }
+
+   #products {
+      margin-bottom: 3rem;
    }
 }
 
@@ -626,7 +630,7 @@ header {
       font-size: 25px !important;
    }
    #products {
-      margin-top: 4rem;
+      margin-top: 3rem;
    }
    .menu-bar__cart {
       border-left: none !important
@@ -956,7 +960,7 @@ header {
   }
 
    #news {
-      margin-top: 45px;
+      margin-top: 3rem;
    }
 }
 
@@ -1151,7 +1155,7 @@ header {
 footer {
    background-image: url("../images/footer-img.jpg");
    padding: 70px 0 41px;
-   margin-top: 80px;
+   margin-top: 3rem;
    background-size: cover;
    background-repeat: no-repeat;
 }
