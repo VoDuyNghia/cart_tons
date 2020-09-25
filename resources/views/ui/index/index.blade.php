@@ -31,44 +31,62 @@
         <div class="single-item">
             @if($agent->isMobile())
             <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(15)['image'], 'banners') }});"></div>
+                <a href="{{ getImageDatabase(15)['image'] }}">
+                    <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(15)['image'], 'banners') }});"></div>
+                </a>
             </div>
             @elseif($agent->isTablet())
             <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(16)['image'], 'banners') }});"></div>
+                <a href="{{ getImageDatabase(16)['image'] }}">
+                    <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(16)['image'], 'banners') }});"></div>
+                </a>
             </div>
             @else
             <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(1)['image'], 'banners') }});"></div>
+                <a href="{{ getImageDatabase(1)['image'] }}">
+                    <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(1)['image'], 'banners') }});"></div>
+                </a>
             </div>
             @endif
 
             @if($agent->isMobile())
-            <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(17)['image'], 'banners') }});"></div>
-            </div>
+                <a href="{{ getImageDatabase(17)['image'] }}">
+                    <div>
+                        <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(17)['image'], 'banners') }});"></div>
+                    </div>
+                </a>
             @elseif($agent->isTablet())
-            <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(18)['image'], 'banners') }});"></div>
-            </div>
+                <a href="{{ getImageDatabase(18)['image'] }}">
+                    <div>
+                        <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(18)['image'], 'banners') }});"></div>
+                    </div>
+                </a>
             @else
-            <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(2)['image'], 'banners') }});"></div>
-            </div>
+                <a href="{{ getImageDatabase(2)['image'] }}">
+                    <div>
+                        <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(2)['image'], 'banners') }});"></div>
+                    </div>
+                </a>
             @endif
 
             @if($agent->isMobile())
-            <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(19)['image'], 'banners') }});"></div>
-            </div>
+                <a href="{{ getImageDatabase(19)['image'] }}">
+                    <div>
+                        <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(19)['image'], 'banners') }});"></div>
+                    </div>
+                </a>
             @elseif($agent->isTablet())
-            <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(20)['image'], 'banners') }});"></div>
-            </div>
+                <a href="{{ getImageDatabase(20)['image'] }}">
+                    <div>
+                        <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(20)['image'], 'banners') }});"></div>
+                    </div>
+                </a>
             @else
-            <div>
-                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(3)['image'], 'banners') }});"></div>
-            </div>
+                <a href="{{ getImageDatabase(3)['image'] }}">
+                    <div>
+                        <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(3)['image'], 'banners') }});"></div>
+                    </div>
+                </a>
             @endif
         </div>
     </section>
