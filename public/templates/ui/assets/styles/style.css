@@ -953,8 +953,8 @@ header {
    background-color: #956134;
    color: #fff;
    font-weight: 700;
-   height: 32px;
-   line-height: 32px;
+   height: 28px;
+   line-height: 28px;
    padding: 0 17px;
    font-family: "Arial, Helvetica, sans-serif" !important;
    font-size: 11px;
@@ -1038,14 +1038,6 @@ header {
       height: 352px;
    }
 
-   .product__add-to-cart-button {
-      text-align: left;
-   }
-
-   .product-sale {
-      font-size: 9px;
-   }
-
    .slick-prev  {
       width: 35px;
       height: 35px;
@@ -1060,6 +1052,17 @@ header {
       right: 14px !important;
    }
   
+   .product__add-to-cart-button span {
+      font-size: 12px;
+   }
+
+   .product__add-to-cart-button {
+      height: 38px;
+   }
+
+   .product-sale { 
+      padding: 0 5px !important;
+   }
 }
 
 .banner-sale>div {
