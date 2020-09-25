@@ -158,7 +158,7 @@
             <div class="col-md-12">
                 <div class="row">
                     @foreach($dataProductRandom as $value)
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-4 col-6">
                         <div class="product-wrapper">
                             <div class="product">
                                 <div class="product__img-wrapper">

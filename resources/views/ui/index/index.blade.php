@@ -29,15 +29,47 @@
     @include('ui.common.info')
     <section>
         <div class="single-item">
+            @if($agent->isMobile())
+            <div>
+                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(15)['image'], 'banners') }});"></div>
+            </div>
+            @elseif($agent->isTablet())
+            <div>
+                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(16)['image'], 'banners') }});"></div>
+            </div>
+            @else
             <div>
                 <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(1)['image'], 'banners') }});"></div>
             </div>
+            @endif
+
+            @if($agent->isMobile())
+            <div>
+                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(17)['image'], 'banners') }});"></div>
+            </div>
+            @elseif($agent->isTablet())
+            <div>
+                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(18)['image'], 'banners') }});"></div>
+            </div>
+            @else
             <div>
                 <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(2)['image'], 'banners') }});"></div>
             </div>
+            @endif
+
+            @if($agent->isMobile())
+            <div>
+                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(19)['image'], 'banners') }});"></div>
+            </div>
+            @elseif($agent->isTablet())
+            <div>
+                <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(20)['image'], 'banners') }});"></div>
+            </div>
+            @else
             <div>
                 <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(3)['image'], 'banners') }});"></div>
             </div>
+            @endif
         </div>
     </section>
 

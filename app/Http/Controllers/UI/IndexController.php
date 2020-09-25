@@ -7,6 +7,7 @@ use App\Models\Admin\News;
 use App\Models\Admin\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
+use Jenssegers\Agent\Agent;
 
 class IndexController extends Controller
 {
@@ -15,7 +16,9 @@ class IndexController extends Controller
         $dataProduct = $this->getProduct()->toArray();
         $dataNews = $this->getNews()->toArray();
 
-        return view('ui.index.index', compact('dataProduct', 'dataNews'));
+        $agent = new Agent();
+
+        return view('ui.index.index', compact('dataProduct', 'dataNews', 'agent'));
     }
 
     private function getProduct()
@@ -89,13 +92,13 @@ class IndexController extends Controller
             "****963214",
         ];
 
-        for($i = 0; $i <= 15; $i++) {
+        for($i = 0; $i <= 10; $i++) {
             $productId = rand(0, $number -1);
             
             $data[$i] = [
                 "username" => $dataName[$i],
                 "phone" => $dataPhone[$i],
-                'product' => "Cafe đen ".$i,
+                'product' => $dataProduct[$productId]['name'],
                 'image' => '../images/products/default.png',
                 'url' => route('ui.detail.index_product', getUrl($dataProduct[$productId]['name'], $dataProduct[$productId]['id']))
             ];
