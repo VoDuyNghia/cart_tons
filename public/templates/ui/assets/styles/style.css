@@ -1057,12 +1057,14 @@ header {
    }
 
    .product__add-to-cart-button {
-      height: 38px;
+      height: 36px;
+      text-align: left;
    }
 
    .product-sale {
       padding: 0 5px !important;
       left: 3px;
+      top: 3px
    }
 }
 
