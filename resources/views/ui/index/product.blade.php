@@ -3,7 +3,7 @@
         @foreach($dataProduct as $value)
         <div class="product">
             <div class="product__img-wrapper">
-                <a href="javascript:void(0)" class="product__img"><img width="100%"
+                <a href="{{route('ui.detail.index_product',getUrl($value['name'], $value['id']))}}" class="product__img"><img width="100%"
                         src="{{ getImage($value['image'], 'products') }}"
                         alt="{{ $value['name'] }}" />
                 </a>
