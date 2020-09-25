@@ -31,38 +31,38 @@
         <div class="single-item">
             @if($agent->isMobile())
             <div>
-                <a href="{{ getImageDatabase(15)['image'] }}">
+                <a href="{{ getImageDatabase(15)['link'] }}">
                     <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(15)['image'], 'banners') }});"></div>
                 </a>
             </div>
             @elseif($agent->isTablet())
             <div>
-                <a href="{{ getImageDatabase(16)['image'] }}">
+                <a href="{{ getImageDatabase(16)['link'] }}">
                     <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(16)['image'], 'banners') }});"></div>
                 </a>
             </div>
             @else
             <div>
-                <a href="{{ getImageDatabase(1)['image'] }}">
+                <a href="{{ getImageDatabase(1)['link'] }}">
                     <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(1)['image'], 'banners') }});"></div>
                 </a>
             </div>
             @endif
 
             @if($agent->isMobile())
-                <a href="{{ getImageDatabase(17)['image'] }}">
+                <a href="{{ getImageDatabase(17)['link'] }}">
                     <div>
                         <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(17)['image'], 'banners') }});"></div>
                     </div>
                 </a>
             @elseif($agent->isTablet())
-                <a href="{{ getImageDatabase(18)['image'] }}">
+                <a href="{{ getImageDatabase(18)['link'] }}">
                     <div>
                         <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(18)['image'], 'banners') }});"></div>
                     </div>
                 </a>
             @else
-                <a href="{{ getImageDatabase(2)['image'] }}">
+                <a href="{{ getImageDatabase(2)['link'] }}">
                     <div>
                         <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(2)['image'], 'banners') }});"></div>
                     </div>
@@ -70,19 +70,19 @@
             @endif
 
             @if($agent->isMobile())
-                <a href="{{ getImageDatabase(19)['image'] }}">
+                <a href="{{ getImageDatabase(19)['link'] }}">
                     <div>
                         <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(19)['image'], 'banners') }});"></div>
                     </div>
                 </a>
             @elseif($agent->isTablet())
-                <a href="{{ getImageDatabase(20)['image'] }}">
+                <a href="{{ getImageDatabase(20)['link'] }}">
                     <div>
                         <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(20)['image'], 'banners') }});"></div>
                     </div>
                 </a>
             @else
-                <a href="{{ getImageDatabase(3)['image'] }}">
+                <a href="{{ getImageDatabase(3)['link'] }}">
                     <div>
                         <div class="banner-slider" style="background-image: url({{ getImage(getImageDatabase(3)['image'], 'banners') }});"></div>
                     </div>
