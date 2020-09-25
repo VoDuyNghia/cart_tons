@@ -143,7 +143,7 @@
 
         <div class="row mt-3">
             <div class="col-md-12">
-                <h4 class="text-uppercase title-cart-total">MÔ TẢ</h4>
+                <h4 class="text-uppercase title-cart-total">LƯU Ý</h4>
             </div>
             <div class="col-md-12">
                 <div class="description-product">{!! $dataProduct['description'] !!}</div>
@@ -167,7 +167,7 @@
                                             alt="{{ $value['name'] }}" />
                                     </a>
                                     <div class="product__add-to-cart">
-                                        <button id="product-{{ $value['id'] }}" class="poduct_detail_button product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">
+                                        <button id="product-{{ $value['id'] }}" class="product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <input type="hidden" name="qty[{{ $value['id']}}]" readonly value="1">
                                             <span>THÊM GIỎ HÀNG</span>
