@@ -935,15 +935,13 @@ header {
 @media screen and (max-width: 768px) {
    .poduct_detail_button {
       bottom: 0;
-      text-align: initial;
-      font-size: 12px;
+      font-size: 10px;
+      text-align: left;
    }
 }
 
 .product:hover .product__add-to-cart-button {
    bottom: 0;
-   transition: 0.3s;
-   opacity: 0.9;
 }
 
 .product-sale {
@@ -1053,12 +1051,12 @@ header {
    }
   
    .product__add-to-cart-button span {
-      font-size: 12px;
+      font-size: 10px;
    }
 
    .product__add-to-cart-button {
+      text-align: left !important;
       height: 36px;
-      text-align: left;
    }
 
    .product-sale {
