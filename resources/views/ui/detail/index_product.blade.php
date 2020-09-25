@@ -162,9 +162,8 @@
                         <div class="product-wrapper">
                             <div class="product">
                                 <div class="product__img-wrapper">
-                                    <a href="{{route('ui.detail.index_product',getUrl($value['name'], $value['id']))}}" class="product__img"><img width="100%"
-                                            src="{{ getImage($value['image'], 'products') }}"
-                                            alt="{{ $value['name'] }}" />
+                                    <a href="javascript:void(0)" class="product__img">
+                                        <img width="100%" src="{{ getImage($value['image'], 'products') }}" alt="{{ $value['name'] }}" />
                                     </a>
                                     <div class="product__add-to-cart">
                                         <button id="product-{{ $value['id'] }}" class="product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
