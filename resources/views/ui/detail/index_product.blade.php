@@ -158,7 +158,7 @@
             <div class="col-md-12">
                 <div class="row">
                     @foreach($dataProductRandom as $value)
-                    <div class="col-lg-3 col-md-4 col-6">
+                    <div class="col-lg-3 col-md-4 col-6 product-related">
                         <div class="product-wrapper">
                             <div class="product">
                                 <div class="product__img-wrapper">
@@ -167,8 +167,7 @@
                                             alt="{{ $value['name'] }}" />
                                     </a>
                                     <div class="product__add-to-cart">
-                                        <button id="product-{{ $value['id'] }}" class="product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        <button id="product-{{ $value['id'] }}" class="product__add-to-cart-button" onclick="cart.add('{{ $value['id']}}', 1)">                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                             <input type="hidden" name="qty[{{ $value['id']}}]" readonly value="1">
                                             <span>THÊM GIỎ HÀNG</span>
                                         </button>
