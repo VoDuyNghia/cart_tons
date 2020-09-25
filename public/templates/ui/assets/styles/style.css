@@ -73,6 +73,7 @@ main {
    .wrapper {
       width: 1100px;
       padding: 0;
+      margin-bottom: 2rem;
    }
 
    #news {
@@ -1036,6 +1037,29 @@ header {
    .product {
       height: 352px;
    }
+
+   .product__add-to-cart-button {
+      text-align: left;
+   }
+
+   .product-sale {
+      font-size: 9px;
+   }
+
+   .slick-prev  {
+      width: 35px;
+      height: 35px;
+   }
+
+   .slick-next {
+      width: 35px;
+      height: 35px;
+   }
+
+   .slick-next {
+      right: 14px !important;
+   }
+  
 }
 
 .banner-sale>div {
