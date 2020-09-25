@@ -1188,19 +1188,19 @@ header {
 
 @media screen and (min-width: 1024px) {
    .news-img {
-      height: 180px;
+      height: 184px;
    }
 }
 
 @media screen and (min-width: 1200px) {
    .news-img {
-      height: 210px;
+      height: 223px;
    }
 }
 
 @media screen and (min-width: 1440px) {
    .news-img {
-      height: 250px;
+      height: 258px;
    }
 }
 
